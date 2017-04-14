@@ -18,9 +18,6 @@ export class CacheService {
   private readonly options: CacheOptions;
 
   public static getInstance(loader?: CacheLoader, platformId?: any, injector?: Injector): CacheService {
-    if (!CacheService.instance)
-      CacheService.instance = new CacheService(loader, platformId, injector);
-
     return CacheService.instance;
   }
 
@@ -44,6 +41,8 @@ export class CacheService {
   constructor(public loader: CacheLoader,
               @Inject(PLATFORM_ID) private readonly platformId: any,
               private readonly injector: Injector) {
+    CacheService.instance = this;
+
     this.cache = this.injector.get(CACHE);
     this.options = loader.options;
   }
