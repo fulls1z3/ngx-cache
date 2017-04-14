@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "importHelpers": true,
+    "lib": [ "es2015", "dom" ],
+    "declaration": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "files": [
+    "index.ts",
+    "src/models/cache-options.ts",
+    "src/models/cache-value.ts",
+    "src/models/return-type.ts",
+    "src/cache.loader.ts",
+    "src/cache.service.ts",
+    "src/cache.ts",
+    "src/cached.decorator.ts",
+    "src/util.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false
+}
