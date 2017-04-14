@@ -16,6 +16,10 @@ export function cacheFactory(): CacheLoader {
   return new CacheStaticLoader();
 }
 
+export function cacheServiceFactory(loader: CacheLoader, platformId: any, injector: Injector): CacheService {
+  return new CacheService(loader, platformId, injector);
+}
+
 @NgModule()
 export class CacheModule {
   static forRoot(configuredProvider: any = {
@@ -28,7 +32,7 @@ export class CacheModule {
         configuredProvider,
         {
           provide: CacheService,
-          useFactory: (CacheService.getInstance),
+          useFactory: (cacheServiceFactory),
           deps: [CacheLoader, PLATFORM_ID, Injector]
         }
       ]
