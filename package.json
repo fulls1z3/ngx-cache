@@ -24,7 +24,7 @@
   "scripts": {
     "test": "karma start"
   },
-  "main": "bundles/ngx-cache-core.umd.min.js",
+  "main": "bundles/core.umd.min.js",
   "module": "index.js",
   "typings": "index.d.ts",
   "dependencies": {

@@ -60,10 +60,10 @@ module.exports = {
      *
      * See: http://webpack.github.io/docs/configuration.html#output-filename
      */
-    filename: 'ngx-cache-core.umd.min.js',
+    filename: 'core.umd.min.js',
 
     libraryTarget: 'umd',
-    library: 'ngx-cache-core'
+    library: 'ngx-cache'
   },
 
   /**
