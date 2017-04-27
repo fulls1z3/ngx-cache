@@ -18,9 +18,9 @@ export function CacheKey(target: any, propertyKey: string, index: number): void 
 }
 
 export function Cached(key: string): any | Observable<any> | Promise<any> {
-  return function (target: Function, propertyKey: string, descriptor: TypedPropertyDescriptor<any>): any | Observable<any> | Promise<any> {
+  return function(target: Function, propertyKey: string, descriptor: TypedPropertyDescriptor<any>): any | Observable<any> | Promise<any> {
     const method: Function = descriptor.value;
-    descriptor.value = function (...args: Array<any>): any | Observable<any> | Promise<any> {
+    descriptor.value = function(...args: Array<any>): any | Observable<any> | Promise<any> {
       const cache = CacheService.getInstance();
 
       const metadataKey = `__cache_${propertyKey}_keys`;
@@ -64,15 +64,18 @@ export function Cached(key: string): any | Observable<any> | Promise<any> {
       if (isObservable(value))
         return value.map((res: any) => {
           cache.set(cacheKey, res, ReturnType.Observable);
+
           return res;
         });
       else if (isPromise(value))
         return value.then((res: any) => {
           cache.set(cacheKey, res, ReturnType.Promise);
+
           return res;
         });
 
       cache.set(cacheKey, value);
+
       return value;
     };
 

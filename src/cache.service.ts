@@ -1,5 +1,5 @@
 // angular
-import { Inject, Injectable, Injector, InjectionToken, PLATFORM_ID } from '@angular/core';
+import { Inject, Injectable, InjectionToken, Injector, PLATFORM_ID } from '@angular/core';
 
 // module
 import { CacheOptions } from './models/cache-options';
@@ -17,28 +17,28 @@ export class CacheService {
   private readonly cache: Cache;
   private readonly options: CacheOptions;
 
-  public static getInstance(loader?: CacheLoader, platformId?: any, injector?: Injector): CacheService {
+  static getInstance(loader?: CacheLoader, platformId?: any, injector?: Injector): CacheService {
     return CacheService.instance;
   }
 
-  public static normalizeKey(key: string | number): string {
+  static normalizeKey(key: string | number): string {
     if (CacheService.validateKey(key))
       throw new Error('Please provide a valid key to save in the CacheService');
 
-    return key + '';
+    return `${key}`;
   }
 
   private static validateKey(key: string | number): boolean {
     return !key
       || typeof key === 'boolean'
-      || Number.isNaN(<number>key);
+      || Number.isNaN(key as number);
   }
 
   private static validateValue(value: CacheValue): boolean {
     return !!value.options.expiry && value.options.expiry > Date.now();
   }
 
-  constructor(public loader: CacheLoader,
+  constructor(public readonly loader: CacheLoader,
               @Inject(PLATFORM_ID) private readonly platformId: any,
               private readonly injector: Injector) {
     CacheService.instance = this;
@@ -63,7 +63,7 @@ export class CacheService {
 
     return this.cache.setItem(key, {
       data: value,
-      returnType: returnType,
+      returnType,
       options: this.parseOptions(options)
     });
   }
@@ -71,7 +71,7 @@ export class CacheService {
   get(key: string | number): any {
     key = CacheService.normalizeKey(key);
     const cached = this.cache.getItem(key);
-    let res = undefined;
+    let res;
 
     if (!!cached)
       if (CacheService.validateValue(cached))
@@ -85,7 +85,7 @@ export class CacheService {
   getWithMetadata(key: string | number): CacheValue {
     key = CacheService.normalizeKey(key);
     const cached = this.cache.getItem(key);
-    let res = undefined;
+    let res;
 
     if (!!cached)
       if (CacheService.validateValue(cached))

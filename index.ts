@@ -1,5 +1,7 @@
 // angular
-import { InjectionToken, Injector, ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf } from '@angular/core';
+import {
+  InjectionToken, Injector, ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf
+} from '@angular/core';
 
 // module
 import { CacheLoader, CacheStaticLoader } from './src/cache.loader';
@@ -37,7 +39,11 @@ export class CacheModule {
         {
           provide: CacheService,
           useFactory: (cacheServiceFactory),
-          deps: [CacheLoader, PLATFORM_ID, Injector]
+          deps: [
+            CacheLoader,
+            PLATFORM_ID,
+            Injector
+          ]
         }
       ]
     };
