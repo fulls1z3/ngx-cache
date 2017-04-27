@@ -24,6 +24,7 @@
     "src/cache.service.ts",
     "src/cache.ts",
     "src/cached.decorator.ts",
+    "src/storage.ts",
     "src/util.ts"
   ],
   "exclude": [

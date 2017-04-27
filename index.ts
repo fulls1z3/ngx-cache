@@ -1,15 +1,19 @@
 // angular
-import { Injector, ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf } from '@angular/core';
+import { InjectionToken, Injector, ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf } from '@angular/core';
 
 // module
 import { CacheLoader, CacheStaticLoader } from './src/cache.loader';
 import { CacheService } from './src/cache.service';
+import { Storage } from './src/storage';
 
+export * from './src/models/cache-value';
 export * from './src/cache';
-export * from './src/cached.decorator';
 export * from './src/cache.loader';
 export * from './src/cache.service';
-export * from './src/models/cache-value';
+export * from './src/cached.decorator';
+export * from './src/storage';
+
+export const STORAGE = new InjectionToken<Storage>('STORAGE');
 
 // for AoT compilation
 export function cacheFactory(): CacheLoader {
