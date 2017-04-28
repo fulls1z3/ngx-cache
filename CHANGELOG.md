@@ -1,8 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## v0.0.1-alpha.2 - 2017-04-14
-- Resolved cannot get instance of CacheService (closes [#3](https://github.com/ngx-cache/core/issues/3))
+## v0.4.0-beta.1 - 2017-04-28
+### Added
+- Added abstract storage (closes [#4](https://github.com/ngx-cache/core/issues/4)
 
-## v0.0.1-alpha.1 - 2017-04-14
-- Initial commit
+### Fixed
+- Resolved add `yarn.lock` to npmignore (closes [#2](https://github.com/ngx-cache/core/issues/2))
+- Resolved cannot get instance of CacheService (closes [#3](https://github.com/ngx-cache/core/issues/3))
+- Resolved error on AoT compilation (closes [#1](https://github.com/ngx-cache/core/issues/1))
+
+### Changed
+- Updated README.md
+- Updated deps, ignorers
