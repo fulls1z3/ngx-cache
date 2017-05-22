@@ -39,7 +39,11 @@ export class CacheModule {
         {
           provide: CacheService,
           useFactory: (cacheServiceFactory),
-          deps: [CacheLoader, PLATFORM_ID, Injector]
+          deps: [
+            CacheLoader,
+            PLATFORM_ID,
+            Injector
+          ]
         }
       ]
     };
