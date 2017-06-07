@@ -32,8 +32,8 @@ export function Cached(key: string): any | Observable<any> | Promise<any> {
         for (let i = 0; i < args.length; i++)
           if (indices.indexOf(i) !== -1)
             keyParts = !keyParts
-              ? args[i].toString()
-              : `${keyParts}_${args[i].toString()}`;
+              ? String(args[i])
+              : `${keyParts}_${String(args[i])}`;
 
       let cacheKey = !keyParts
         ? key
