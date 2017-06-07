@@ -96,10 +96,10 @@ export class CacheService {
     return res;
   }
 
-  remove(key: string | number): void {
+  remove(key: string | number, wild = false): void {
     key = CacheService.normalizeKey(key);
 
-    this.cache.removeItem(key);
+    this.cache.removeItem(key, wild);
   }
 
   clear(): void {

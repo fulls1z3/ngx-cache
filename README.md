@@ -147,7 +147,7 @@ You can find detailed information about the usage guidelines for the **server pl
 - `get(key: string | number)`: gets some object from `CACHE`, with `ReturnType` (*`Scalar`, `Observable` or `Promise`*) and `CacheOptions`, by key
 - `getWithMetadata(key: string | number)`: gets some object from `CACHE`, by key
 - `set(key: string | number, value: any, returnType: ReturnType = ReturnType.Scalar, options?: CacheOptions)`: puts some object to `CACHE` 
-- `remove(key: string | number)`: removes some object from `CACHE`, by key
+- `remove(key: string | number, wild = false)`: removes some object from `CACHE`, by key
 - `clear()`: removes all objects from `CACHE`
 - `dehydrate()`: converts the data from `CACHE` to JSON (*ex: transferring `CACHE` data from the **server platform** to the **client platform** using [@ngx-universal/state-transfer]*)
 - 'rehydrate(json: any)': converts the given JSON value to `CACHE` data
