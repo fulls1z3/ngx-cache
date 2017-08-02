@@ -18,6 +18,7 @@ export function CacheKey(target: any, propertyKey: string, index: number): void 
 }
 
 export function Cached(key: string): any | Observable<any> | Promise<any> {
+  // tslint:disable-next-line
   return function(target: Function, propertyKey: string, descriptor: TypedPropertyDescriptor<any>): any | Observable<any> | Promise<any> {
     const method: Function = descriptor.value;
     descriptor.value = function(...args: Array<any>): any | Observable<any> | Promise<any> {
@@ -42,12 +43,13 @@ export function Cached(key: string): any | Observable<any> | Promise<any> {
       cacheKey = CacheService.normalizeKey(cacheKey);
 
       if (!cacheKey || !cache)
+        // tslint:disable-next-line
         return method.apply(this, args);
 
       if (cache.has(cacheKey)) {
         const cached = cache.getWithMetadata(cacheKey);
 
-        if (!!cached && !!cached.data) {
+        if (!!cached && !!cached.data)
           switch (cached.returnType) {
             case ReturnType.Observable:
               return Observable.of(cached.data);
@@ -56,9 +58,9 @@ export function Cached(key: string): any | Observable<any> | Promise<any> {
             default:
               return cached.data;
           }
-        }
       }
 
+      // tslint:disable-next-line
       const value = method.apply(this, args);
 
       if (isObservable(value))
