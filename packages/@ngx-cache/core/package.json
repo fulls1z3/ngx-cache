@@ -1,0 +1,37 @@
+{
+  "name": "@ngx-cache/core",
+  "version": "0.4.0-beta.2",
+  "description": "Cache utility for Angular",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fulls1z3/ngx-cache.git"
+  },
+  "keywords": [
+    "caching",
+    "cache",
+    "universal",
+    "angular"
+  ],
+  "author": {
+    "name": "Burak Tasci",
+    "email": "me@fulls1z3.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fulls1z3/ngx-cache/issues"
+  },
+  "homepage": "https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/core#readme",
+  "main": "./bundles/core.umd.min.js",
+  "module": "./index.js",
+  "typings": "./index.d.ts",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
+  "devDependencies": {
+    "@angular/compiler-cli": "~4.3.0"
+  },
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.0.1"
+  }
+}

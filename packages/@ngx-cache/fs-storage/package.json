@@ -1,0 +1,44 @@
+{
+  "name": "@ngx-cache/fs-storage",
+  "version": "0.4.0-beta.2",
+  "description": "Fs storage for ngx-cache (server platform)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fulls1z3/ngx-cache.git"
+  },
+  "keywords": [
+    "server side",
+    "platform-server",
+    "storage",
+    "file",
+    "fs",
+    "caching",
+    "cache",
+    "universal",
+    "angular"
+  ],
+  "author": {
+    "name": "Burak Tasci",
+    "email": "me@fulls1z3.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fulls1z3/ngx-cache/issues"
+  },
+  "homepage": "https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/fs-storage#readme",
+  "main": "./bundles/fs.umd.min.js",
+  "module": "./index.js",
+  "typings": "./index.d.ts",
+  "dependencies": {
+    "tslib": "^1.7.1"
+  },
+  "devDependencies": {
+    "@angular/compiler-cli": "~4.3.0",
+    "@ngx-cache/core": "0.4.0-beta.2"
+  },
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.0.1",
+    "@ngx-cache/core": "0.4.0-beta.2"
+  }
+}

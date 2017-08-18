@@ -1,0 +1,12 @@
+{
+  "extends": "../../../tsconfig.json",
+  "files": [
+    "./index.ts",
+    "./src/local-storage-cache.service.ts",
+    "./src/memory-cache.service.ts"
+  ],
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
+  }
+}
