@@ -12,28 +12,12 @@
     "lib": [ "es2015", "dom" ],
     "declaration": true,
     "typeRoots": [
-      "node_modules/@types"
+      "./node_modules/@types"
     ]
   },
-  "files": [
-    "index.ts",
-    "src/models/cache-options.ts",
-    "src/models/cache-value.ts",
-    "src/models/return-type.ts",
-    "src/cache.loader.ts",
-    "src/cache.service.ts",
-    "src/cache.ts",
-    "src/cached.decorator.ts",
-    "src/storage.ts",
-    "src/util.ts"
-  ],
   "exclude": [
     "node_modules"
   ],
-  "angularCompilerOptions": {
-    "strictMetadataEmit": true,
-    "skipTemplateCodegen": true
-  },
   "compileOnSave": false,
   "buildOnSave": false
 }
