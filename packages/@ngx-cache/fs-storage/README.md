@@ -2,6 +2,7 @@
 **Fs storage** for [ngx-cache] (server platform)
 
 [![npm version](https://badge.fury.io/js/%40ngx-cache%2Ffs-storage.svg)](https://www.npmjs.com/package/@ngx-cache/fs-storage)
+[![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
@@ -70,7 +71,10 @@ import { FsStorageLoader, FsStorageStaticLoader, FsStorageService } from '@ngx-c
 ...
 
 export function fsStorageFactory(): FsStorageLoader {
-  return new FsStorageStaticLoader('./.temp/cache', 5 * 1024 * 1024);
+  return new FsStorageStaticLoader({
+    path: './.temp/cache',
+    quota: 5 * 1024 * 1024
+  });
 }
 
 @NgModule({
@@ -112,9 +116,10 @@ export class AppServerModule {
 }
 ```
 
-`FsStorageStaticLoader` has two parameters:
-- **storagePath**: `string` : storage path for cache files (*by default, `'./.temp/cache'`*)
-- **storageQuota**: `number` : disk quota for cache files (*by default, `5242880`*)
+`FsStorageStaticLoader` has one parameter:
+- **providedSettings**: `FsStorageSettings` : fs storage settings
+  - **path**: `string` : storage path for cache files (*by default, `'./.temp/cache'`*)
+  - **quota**: `number` : disk quota for cache files (*by default, `5242880`*)
 
 > :+1: Yeah! **`@ngx-cache/fs-storage`** will now provide **storage settings** to [@ngx-cache/platform-server].
 
