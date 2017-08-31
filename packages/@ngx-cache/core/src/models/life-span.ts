@@ -1,4 +1,4 @@
-export interface CacheOptions {
+export interface LifeSpan {
   /**
    * expiry time (timestamp)
    */

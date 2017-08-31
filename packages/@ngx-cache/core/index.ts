@@ -8,7 +8,9 @@ import { CacheLoader, CacheStaticLoader } from './src/cache.loader';
 import { CacheService } from './src/cache.service';
 import { Storage } from './src/storage';
 
+export * from './src/models/cache-settings';
 export * from './src/models/cache-value';
+export * from './src/models/life-span';
 export * from './src/cache';
 export * from './src/cache.loader';
 export * from './src/cache.service';

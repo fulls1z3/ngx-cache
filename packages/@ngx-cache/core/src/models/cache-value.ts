@@ -1,5 +1,5 @@
 // module
-import { CacheOptions } from './cache-options';
+import { LifeSpan } from './life-span';
 import { ReturnType } from './return-type';
 
 export interface CacheValue {
@@ -12,7 +12,7 @@ export interface CacheValue {
    */
   returnType: ReturnType;
   /**
-   * cache options
+   * cache life span
    */
-  options: CacheOptions;
+  lifeSpan: LifeSpan;
 }
