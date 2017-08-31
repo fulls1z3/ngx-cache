@@ -26,7 +26,7 @@ export class BrowserCacheModule {
       throw new Error('BrowserCacheModule already loaded; import in BROWSER module only.');
 
     // TODO: refactor into a lifecycle hook (APP_INITIALIZER)
-    if (!!stateId) {
+    if (stateId) {
       const defaultValue = {};
       const serverCache = this.getCacheValue(defaultValue);
       cache.rehydrate(serverCache);
@@ -42,7 +42,7 @@ export class BrowserCacheModule {
     if (!win[this.stateId])
       return defaultValue;
 
-    if (!!win[this.stateId][this.cache.key]) {
+    if (win[this.stateId][this.cache.key]) {
       let serverCache = defaultValue;
 
       try {
