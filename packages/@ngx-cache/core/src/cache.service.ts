@@ -12,10 +12,10 @@ export const CACHE = new InjectionToken<Cache>('CACHE');
 
 @Injectable()
 export class CacheService {
-  private static instance: CacheService = undefined;
+  protected readonly cache: Cache;
+  protected readonly options: CacheOptions;
 
-  private readonly cache: Cache;
-  private readonly options: CacheOptions;
+  private static instance: CacheService = undefined;
 
   static getInstance(loader?: CacheLoader, platformId?: any, injector?: Injector): CacheService {
     return CacheService.instance;
@@ -35,7 +35,7 @@ export class CacheService {
   }
 
   private static validateValue(value: CacheValue): boolean {
-    return !!value.options.expiry && value.options.expiry > Date.now();
+    return value.options.expiry && value.options.expiry > Date.now();
   }
 
   constructor(public readonly loader: CacheLoader,
@@ -73,7 +73,7 @@ export class CacheService {
     const cached = this.cache.getItem(key);
     let res;
 
-    if (!!cached)
+    if (cached)
       if (CacheService.validateValue(cached))
         res = cached.data;
       else
@@ -87,7 +87,7 @@ export class CacheService {
     const cached = this.cache.getItem(key);
     let res;
 
-    if (!!cached)
+    if (cached)
       if (CacheService.validateValue(cached))
         res = cached;
       else

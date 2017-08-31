@@ -49,7 +49,7 @@ export function Cached(key: string): any | Observable<any> | Promise<any> {
       if (cache.has(cacheKey)) {
         const cached = cache.getWithMetadata(cacheKey);
 
-        if (!!cached && !!cached.data)
+        if (cached && cached.data)
           switch (cached.returnType) {
             case ReturnType.Observable:
               return Observable.of(cached.data);
