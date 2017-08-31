@@ -12,10 +12,10 @@ export const CACHE = new InjectionToken<Cache>('CACHE');
 
 @Injectable()
 export class CacheService {
+  private static instance: CacheService = undefined;
+
   protected readonly cache: Cache;
   protected readonly options: CacheOptions;
-
-  private static instance: CacheService = undefined;
 
   static getInstance(loader?: CacheLoader, platformId?: any, injector?: Injector): CacheService {
     return CacheService.instance;
