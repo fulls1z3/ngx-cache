@@ -2,6 +2,7 @@
 Cache utility for **Angular**
 
 [![npm version](https://badge.fury.io/js/%40ngx-cache%2Fcore.svg)](https://www.npmjs.com/package/@ngx-cache/core)
+[![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
@@ -86,7 +87,7 @@ import { CacheModule } from '@ngx-cache/core';
 You can call the [forRoot] static method using `CacheStaticLoader`. By default, it is configured to have the `cacheKey`
 as `'NGX_CACHE'`, and both `expiry` and `TTL` are set to `Number.MAX_VALUE`.
 
-> You can customize this behavior (*and ofc other settings*) by supplying **cache key** and **cache options** to `CacheStaticLoader`.
+> You can customize this behavior (*and ofc other settings*) by supplying **cache key** and **life span** to `CacheStaticLoader`.
 
 The following examples show the use of an exported function (*instead of an inline function*) for [AoT compilation].
 
@@ -97,9 +98,12 @@ import { CacheModule, CacheLoader, CacheStaticLoader } from '@ngx-cache/core';
 ...
 
 export function cacheFactory(): CacheLoader {
-  return new CacheStaticLoader('NGX_CACHE', {
-    "expiry": Number.MAX_VALUE,
-    "TTL":  Number.MAX_VALUE
+  return new CacheStaticLoader({
+    key: 'NGX_CACHE',
+    lifeSpan: {
+      "expiry": Number.MAX_VALUE,
+      "TTL":  Number.MAX_VALUE
+    }
   });
 }
 
@@ -121,10 +125,11 @@ export function cacheFactory(): CacheLoader {
 })
 ```
 
-`CacheStaticLoader` has two parameters:
-- **cacheKey**: `string` : cache key, used as object identifier while transferring between **server** and **browser** platforms
-(*by default, `'NGX_CACHE'`*)
-- **cacheOptions**: `CacheOptions` : cache options (*by default, both `expiry` and `TTL` are set to `Number.MAX_VALUE`*) 
+`CacheStaticLoader` has one parameter:
+- **providedSettings**: `CacheSettings` : cache settings
+  - **key**: `string` : cache key, used as object identifier while transferring between **server** and **browser**
+  platforms (*by default, `'NGX_CACHE'`*)
+  - **lifeSpan**: `LifeSpan` : cache life span (*by default, both `expiry` and `TTL` are set to `Number.MAX_VALUE`*) 
 
 > :+1: Good! **`@ngx-cache/core`** is now ready to provide caching features.
 
@@ -150,9 +155,9 @@ You can find detailed information about the usage guidelines for the **server pl
 - `normalizeKey(key: string | number)`: normalizes the given key
 - `has(key: string | number)`: checks if an object is stored in `CACHE`, by key
 - `get(key: string | number)`: gets some object from `CACHE`, with `ReturnType` (*`Scalar`, `Observable` or `Promise`*)
-and `CacheOptions`, by key
+and `LifeSpan`, by key
 - `getWithMetadata(key: string | number)`: gets some object from `CACHE`, by key
-- `set(key: string | number, value: any, returnType: ReturnType = ReturnType.Scalar, options?: CacheOptions)`: puts some
+- `set(key: string | number, value: any, returnType: ReturnType = ReturnType.Scalar, lifeSpan?: LifeSpan)`: puts some
 object to `CACHE` 
 - `remove(key: string | number, wild = false)`: removes some object from `CACHE`, by key
 - `clear()`: removes all objects from `CACHE`
