@@ -1,3 +1,6 @@
+// module
+import { FsStorageSettings } from './models/fs-storage-settings';
+
 export abstract class FsStorageLoader {
   abstract get path(): string;
 
@@ -5,15 +8,17 @@ export abstract class FsStorageLoader {
 }
 
 export class FsStorageStaticLoader implements FsStorageLoader {
-  constructor(private readonly storagePath: string = './.cache',
-              private readonly storageQuota: number = 5 * 1024 * 1024) {
-  }
-
   get path(): string {
-    return this.storagePath;
+    return this.providedSettings.path;
   }
 
   get quota(): number {
-    return this.storageQuota;
+    return this.providedSettings.quota;
+  }
+
+  constructor(private readonly providedSettings: FsStorageSettings = {
+    path: './.cache',
+    quota: 5 * 1024 * 1024
+  }) {
   }
 }
