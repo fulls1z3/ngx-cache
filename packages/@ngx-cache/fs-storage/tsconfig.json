@@ -4,6 +4,7 @@
     "./index.ts",
     "./src/models/fs-event.ts",
     "./src/models/fs-item-metadata.ts",
+    "./src/models/fs-storage-settings.ts",
     "./src/fs-storage.loader.ts",
     "./src/fs-storage.service.ts"
   ],

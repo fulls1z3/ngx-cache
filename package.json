@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/fulls1z3/ngx-cache/core#readme",
   "scripts": {
-    "clean": "gulp clean",
-    "lint": "gulp tslint",
-    "make": "gulp make",
-    "test": "gulp test"
+    "clean": "gulp clean --color",
+    "lint": "gulp tslint --color",
+    "make": "gulp make --color",
+    "test": "gulp test --color"
   },
   "devDependencies": {
     "@angular/common": "~4.3.0",
