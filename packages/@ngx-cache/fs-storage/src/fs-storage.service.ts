@@ -18,6 +18,7 @@ export class FsStorageService extends Storage {
   keys: Array<string>;
 
   private readonly instances = {};
+
   private readonly path: string;
   private readonly quota: number;
   private readonly pid: string;
@@ -31,7 +32,7 @@ export class FsStorageService extends Storage {
     this.path = resolve(this.loader.path);
     this.quota = this.loader.quota;
 
-    if (!!this.instances[this.path])
+    if (this.instances[this.path])
       return this.instances[this.path];
 
     this.length = 0;
@@ -43,7 +44,7 @@ export class FsStorageService extends Storage {
     try {
       let stat = statSync(this.path);
 
-      if (!!stat && !stat.isDirectory())
+      if (stat && !stat.isDirectory())
         throw new Error(`A file exists at the location ${this.path} when trying to create/open localStorage`);
 
       this.length = 0;
@@ -61,7 +62,7 @@ export class FsStorageService extends Storage {
 
         stat = this.getStats(key);
 
-        if (!!stat && !stat.size) {
+        if (stat && !stat.size) {
           item.size = stat.size;
           this.metadata[decodedKey] = item;
           this.bytesUsed += stat.size;
@@ -82,7 +83,7 @@ export class FsStorageService extends Storage {
     const oldValue = hasListeners ? this.getItem(key) : undefined;
 
     let item = this.metadata[key];
-    const oldLength = !!item ? item.size : 0;
+    const oldLength = item ? item.size : 0;
 
     if (this.bytesUsed - oldLength + value.toString().length > this.quota)
       throw new Error(`Disk quota (${this.quota / 1024}KB) has been reached!`);
@@ -112,7 +113,7 @@ export class FsStorageService extends Storage {
   getItem(key: string): any {
     const item = this.metadata[key];
 
-    if (!!item) {
+    if (item) {
       const filename = join(this.path, item.key);
 
       try {
@@ -131,7 +132,7 @@ export class FsStorageService extends Storage {
 
     const item = this.metadata[key];
 
-    if (!!item) {
+    if (item) {
       delete this.metadata[key];
       this.length -= 1;
       this.bytesUsed -= item.size;
@@ -151,7 +152,7 @@ export class FsStorageService extends Storage {
       try {
         this.deletePath(itemPath);
       } catch (error) {
-        // seems like path can't be deleted
+        // NOTE: seems like path can't be deleted
       }
 
       if (!hasListeners)

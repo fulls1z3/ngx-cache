@@ -1,24 +1,28 @@
 // module
-import { CacheOptions } from './models/cache-options';
+import { CacheSettings } from './models/cache-settings';
+import { LifeSpan } from './models/life-span';
 
 export abstract class CacheLoader {
   abstract get key(): string;
-  abstract get options(): CacheOptions;
+
+  abstract get lifeSpan(): LifeSpan;
 }
 
 export class CacheStaticLoader implements CacheLoader {
-  constructor(private readonly cacheKey: string = 'NGX_CACHE',
-              private readonly cacheOptions: CacheOptions = {
-                expiry: Number.MAX_VALUE,
-                TTL: Number.MAX_VALUE
-              }) {
-  }
-
   get key(): string {
-    return this.cacheKey;
+    return this.providedSettings.key;
   }
 
-  get options(): CacheOptions {
-    return this.cacheOptions;
+  get lifeSpan(): LifeSpan {
+    return this.providedSettings.lifeSpan;
+  }
+
+  constructor(private readonly providedSettings: CacheSettings = {
+    key: 'NGX_CACHE',
+    lifeSpan: {
+      expiry: Number.MAX_VALUE,
+      TTL: Number.MAX_VALUE
+    }
+  }) {
   }
 }

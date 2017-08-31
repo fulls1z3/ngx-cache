@@ -6,11 +6,11 @@ import { Inject, PLATFORM_ID } from '@angular/core';
 import { Cache, CacheValue } from '@ngx-cache/core';
 
 export class MemoryCacheService implements Cache {
+  protected readonly memoryStorage: Map<string, CacheValue>;
+
   private get isEnabled(): boolean {
     return isPlatformBrowser(this.platformId);
   }
-
-  private readonly memoryStorage: Map<string, CacheValue>;
 
   constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {
     if (!this.isEnabled)

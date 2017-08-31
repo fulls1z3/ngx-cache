@@ -2,8 +2,9 @@
   "extends": "../../../tsconfig.json",
   "files": [
     "./index.ts",
-    "./src/models/cache-options.ts",
+    "./src/models/cache-settings.ts",
     "./src/models/cache-value.ts",
+    "./src/models/life-span.ts",
     "./src/models/return-type.ts",
     "./src/cache.loader.ts",
     "./src/cache.service.ts",

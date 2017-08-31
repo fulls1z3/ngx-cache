@@ -19,9 +19,9 @@ export function CacheKey(target: any, propertyKey: string, index: number): void 
 
 export function Cached(key: string): any | Observable<any> | Promise<any> {
   // tslint:disable-next-line
-  return function(target: Function, propertyKey: string, descriptor: TypedPropertyDescriptor<any>): any | Observable<any> | Promise<any> {
+  return function (target: Function, propertyKey: string, descriptor: TypedPropertyDescriptor<any>): any | Observable<any> | Promise<any> {
     const method: Function = descriptor.value;
-    descriptor.value = function(...args: Array<any>): any | Observable<any> | Promise<any> {
+    descriptor.value = function (...args: Array<any>): any | Observable<any> | Promise<any> {
       const cache = CacheService.getInstance();
 
       const metadataKey = `__cache_${propertyKey}_keys`;
@@ -49,7 +49,7 @@ export function Cached(key: string): any | Observable<any> | Promise<any> {
       if (cache.has(cacheKey)) {
         const cached = cache.getWithMetadata(cacheKey);
 
-        if (!!cached && !!cached.data)
+        if (cached && cached.data)
           switch (cached.returnType) {
             case ReturnType.Observable:
               return Observable.of(cached.data);

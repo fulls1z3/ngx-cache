@@ -2,7 +2,7 @@
 import { Inject, Injectable, InjectionToken, Injector, PLATFORM_ID } from '@angular/core';
 
 // module
-import { CacheOptions } from './models/cache-options';
+import { LifeSpan } from './models/life-span';
 import { CacheValue } from './models/cache-value';
 import { ReturnType } from './models/return-type';
 import { Cache } from './cache';
@@ -14,8 +14,8 @@ export const CACHE = new InjectionToken<Cache>('CACHE');
 export class CacheService {
   private static instance: CacheService = undefined;
 
-  private readonly cache: Cache;
-  private readonly options: CacheOptions;
+  protected readonly cache: Cache;
+  protected readonly lifeSpan: LifeSpan;
 
   static getInstance(loader?: CacheLoader, platformId?: any, injector?: Injector): CacheService {
     return CacheService.instance;
@@ -35,7 +35,7 @@ export class CacheService {
   }
 
   private static validateValue(value: CacheValue): boolean {
-    return !!value.options.expiry && value.options.expiry > Date.now();
+    return value.lifeSpan.expiry && value.lifeSpan.expiry > Date.now();
   }
 
   constructor(public readonly loader: CacheLoader,
@@ -44,7 +44,7 @@ export class CacheService {
     CacheService.instance = this;
 
     this.cache = this.injector.get(CACHE);
-    this.options = loader.options;
+    this.lifeSpan = loader.lifeSpan;
   }
 
   get key(): string {
@@ -57,14 +57,14 @@ export class CacheService {
     return this.cache.keys.indexOf(key) !== -1;
   }
 
-  set(key: string | number, value: any, returnType: ReturnType = ReturnType.Scalar, options?: CacheOptions): boolean {
+  set(key: string | number, value: any, returnType: ReturnType = ReturnType.Scalar, lifeSpan?: LifeSpan): boolean {
     key = CacheService.normalizeKey(key);
-    options = options || this.options;
+    lifeSpan = lifeSpan || this.lifeSpan;
 
     return this.cache.setItem(key, {
       data: value,
       returnType,
-      options: this.parseOptions(options)
+      lifeSpan: this.parseLifeSpan(lifeSpan)
     });
   }
 
@@ -73,7 +73,7 @@ export class CacheService {
     const cached = this.cache.getItem(key);
     let res;
 
-    if (!!cached)
+    if (cached)
       if (CacheService.validateValue(cached))
         res = cached.data;
       else
@@ -87,7 +87,7 @@ export class CacheService {
     const cached = this.cache.getItem(key);
     let res;
 
-    if (!!cached)
+    if (cached)
       if (CacheService.validateValue(cached))
         res = cached;
       else
@@ -124,10 +124,10 @@ export class CacheService {
     });
   }
 
-  private parseOptions(options: CacheOptions): CacheOptions {
+  private parseLifeSpan(lifeSpan: LifeSpan): LifeSpan {
     return {
-      expiry: options.expiry || (options.TTL ? Date.now() + (options.TTL * 1000) : this.options.expiry),
-      TTL: options.TTL || this.options.TTL
+      expiry: lifeSpan.expiry || (lifeSpan.TTL ? Date.now() + (lifeSpan.TTL * 1000) : this.lifeSpan.expiry),
+      TTL: lifeSpan.TTL || this.lifeSpan.TTL
     };
   }
 }
