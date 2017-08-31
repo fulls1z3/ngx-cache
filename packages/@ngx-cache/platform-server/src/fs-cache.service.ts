@@ -7,7 +7,7 @@ import { Cache, CacheValue, STORAGE, Storage } from '@ngx-cache/core';
 
 @Injectable()
 export class FsCacheService implements Cache {
-  private readonly fsStorage: Storage;
+  protected readonly fsStorage: Storage;
 
   private get isEnabled(): boolean {
     if (!isPlatformServer(this.platformId))
