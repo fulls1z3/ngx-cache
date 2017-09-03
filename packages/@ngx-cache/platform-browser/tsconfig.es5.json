@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.es2015.json",
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "../../../../.temp/packages/@ngx-cache/platform-browser-es5/"
+  },
+  "files": ["./index.ts"],
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true,
+    "flatModuleOutFile": "platform-browser.js",
+    "flatModuleId": "platform-browser",
+    "genDir": "../../../../.temp/gen-dir/"
+  }
+}
