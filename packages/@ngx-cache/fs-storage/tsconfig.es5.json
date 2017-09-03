@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.es2015.json",
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "../../../../.temp/packages/@ngx-cache/fs-storage-es5/"
+  },
+  "files": ["./index.ts"],
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true,
+    "flatModuleOutFile": "fs-storage.js",
+    "flatModuleId": "fs-storage",
+    "genDir": "../../../../.temp/gen-dir/"
+  }
+}
