@@ -9,6 +9,10 @@
 
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
+#### NOTICE
+> This *[4.x.x] branch* is intented to work with `@angular v4.x.x`. If you're developing on a later release of **Angular**
+than `v4.x.x`, then you should probably choose the appropriate version of this library by visiting the *[master] branch*.
+
 ## Table of contents:
 - [Prerequisites](#prerequisites)
 - [Getting started](#getting-started)
@@ -21,7 +25,7 @@
 - [License](#license)
 
 ## <a name="prerequisites"></a> Prerequisites
-This package depends on `Angular v4.0.0`.
+This library depends on `Angular v4.0.0`. Older versions contain outdated dependencies, might produce errors.
 
 Also, please ensure that you are using **`Typescript v2.3.4`** or higher.
 
@@ -128,6 +132,8 @@ The MIT License (MIT)
 
 Copyright (c) 2017 [Burak Tasci]
 
+[master]: https://github.com/ngx-cache/core/tree/master
+[4.x.x]: https://github.com/ngx-cache/core/tree/4.x.x
 [ngx-cache]: https://github.com/fulls1z3/ngx-cache
 [ng-seed/universal]: https://github.com/ng-seed/universal
 [@ngx-universal/state-transfer]: https://github.com/fulls1z3/ngx-universal/tree/master/packages/@ngx-universal/state-transfer
