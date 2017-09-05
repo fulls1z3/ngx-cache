@@ -1,6 +1,6 @@
 {
   "name": "ngx-cache",
-  "version": "0.0.0",
+  "version": "4.0.0",
   "description": "Cache utility for Angular",
   "repository": {
     "type": "git",
@@ -41,7 +41,7 @@
     "ts-node": "^3.3.0",
     "glob": "^7.1.2",
     "camelcase": "^4.1.0",
-    "rollup": "^0.42.0",
+    "rollup": "~0.42.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-commonjs": "^8.2.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
@@ -78,6 +78,12 @@
       "packages/@ngx-cache/core/src/**.ts",
       "packages/@ngx-cache/platform-browser/src/**.ts",
       "packages/@ngx-cache/platform-server/src/**.ts"
+    ]
+  },
+  "greenkeeper": {
+    "ignore": [
+      "@types/lodash",
+      "rollup"
     ]
   }
 }
