@@ -1,7 +1,9 @@
-# @ngx-cache/platform-browser
+# @ngx-cache/platform-browser [![npm version](https://badge.fury.io/js/%40ngx-cache%2Fplatform-browser.svg)](https://www.npmjs.com/package/@ngx-cache/platform-browser) [![npm downloads](https://img.shields.io/npm/dm/%40ngx-cache%2Fplatform-browser.svg)](https://www.npmjs.com/package/@ngx-cache/platform-browser)
 **SPA/Browser platform** implementation of [ngx-cache]
 
-[![npm version](https://badge.fury.io/js/%40ngx-cache%2Fplatform-browser.svg)](https://www.npmjs.com/package/@ngx-cache/platform-browser)
+[![CircleCI](https://circleci.com/gh/fulls1z3/ngx-cache.svg?style=shield)](https://circleci.com/gh/fulls1z3/ngx-cache)
+[![coverage](https://codecov.io/github/fulls1z3/ngx-cache/coverage.svg?branch=master)](https://codecov.io/gh/fulls1z3/ngx-cache)
+[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
 
