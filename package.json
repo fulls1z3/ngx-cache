@@ -1,6 +1,6 @@
 {
   "name": "ngx-cache",
-  "version": "0.0.0",
+  "version": "4.0.0",
   "description": "Cache utility for Angular",
   "repository": {
     "type": "git",
@@ -21,26 +21,27 @@
     "build": "ts-node ./tools/build/rollup.ts && rimraf .temp",
     "lint": "tslint -p ./tslint.json --force",
     "rebuild": "npm run clean && npm run build",
+    "ci:before": "greenkeeper-lockfile-update",
+    "ci:after": "greenkeeper-lockfile-upload",
     "test": "jest --runInBand --colors",
-    "test:ci": "jest --ci --updateSnapshot",
-    "release": "standard-version",
-    "release:patch": "standard-version --release-as patch"
+    "test:ci": "jest --ci --updateSnapshot --colors",
+    "release": "npm run standard-version"
   },
   "devDependencies": {
     "@angular/common": "~4.3.0",
     "@angular/compiler": "~4.3.0",
     "@angular/compiler-cli": "~4.3.0",
     "@angular/core": "~4.3.0",
-    "core-js": "^2.5.0",
+    "core-js": "^2.5.1",
     "rxjs": "^5.4.3",
     "zone.js": "^0.8.17",
-    "@types/node": "^8.0.25",
+    "@types/node": "^8.0.26",
     "@types/jest": "^20.0.8",
     "rimraf": "^2.6.1",
     "ts-node": "^3.3.0",
     "glob": "^7.1.2",
     "camelcase": "^4.1.0",
-    "rollup": "^0.49.2",
+    "rollup": "~0.42.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-commonjs": "^8.2.0",
     "rollup-plugin-sourcemaps": "^0.4.2",
@@ -77,6 +78,11 @@
       "packages/@ngx-cache/core/src/**.ts",
       "packages/@ngx-cache/platform-browser/src/**.ts",
       "packages/@ngx-cache/platform-server/src/**.ts"
+    ]
+  },
+  "greenkeeper": {
+    "ignore": [
+      "rollup"
     ]
   }
 }
