@@ -65,13 +65,8 @@
       },
       "__TRANSFORM_HTML__": true
     },
-    "moduleNameMapper": {
-      "^ngx-cache/core$": "<rootDir>/packages/@ngx-cache/core/index.ts",
-      "^ngx-cache/core/src/(.*)": "<rootDir>/packages/@ngx-cache/core/$1",
-      "(.*)": "<rootDir>/packages/$1"
-    },
+    "moduleNameMapper": null,
     "cache": false,
-    "noStackTrace": true,
     "silent": true,
     "collectCoverage": true,
     "collectCoverageFrom": [
