@@ -31,7 +31,7 @@
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
     "flatModuleOutFile": "fs-storage.js",
-    "flatModuleId": "fs-storage",
+    "flatModuleId": "@ngx-cache/fs-storage",
     "genDir": "../../../../.temp/gen-dir/"
   }
 }

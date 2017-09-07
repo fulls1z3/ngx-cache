@@ -31,7 +31,7 @@
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
     "flatModuleOutFile": "platform-browser.js",
-    "flatModuleId": "platform-browser",
+    "flatModuleId": "@ngx-cache/platform-browser",
     "genDir": "../../../../.temp/gen-dir/"
   }
 }
