@@ -10,7 +10,7 @@
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
     "flatModuleOutFile": "core.js",
-    "flatModuleId": "core",
+    "flatModuleId": "@ngx-cache/core",
     "genDir": "../../../../.temp/gen-dir/"
   }
 }

@@ -31,7 +31,7 @@
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
     "flatModuleOutFile": "platform-server.js",
-    "flatModuleId": "platform-server",
+    "flatModuleId": "@ngx-cache/platform-server",
     "genDir": "../../../../.temp/gen-dir/"
   }
 }
