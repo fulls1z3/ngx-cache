@@ -30,7 +30,7 @@
   "devDependencies": {
     "@angular/common": "~4.4.4",
     "@angular/compiler": "~4.4.4",
-    "@angular/compiler-cli": "~4.4.4",
+    "@angular/compiler-cli": "~5.0.0",
     "@angular/core": "~4.4.4",
     "core-js": "~2.5.1",
     "rxjs": "~5.4.3",
