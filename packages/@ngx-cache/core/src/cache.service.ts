@@ -38,7 +38,7 @@ export class CacheService {
     return value.lifeSpan.expiry && value.lifeSpan.expiry > Date.now();
   }
 
-  constructor(public readonly loader: CacheLoader,
+  constructor(readonly loader: CacheLoader,
               @Inject(PLATFORM_ID) private readonly platformId: any,
               private readonly injector: Injector) {
     CacheService.instance = this;

@@ -10,8 +10,8 @@ Cache utility for **Angular**
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
 #### NOTICE
-> This *[4.x.x] branch* is intented to work with `@angular v4.x.x`. If you're developing on a later release of **Angular**
-than `v4.x.x`, then you should probably choose the appropriate version of this library by visiting the *[master] branch*.
+> This *[5.x.x] branch* is intented to work with `@angular v5.x.x`. If you're developing on a later release of **Angular**
+than `v5.x.x`, then you should probably choose the appropriate version of this library by visiting the *[master] branch*.
 
 ## Table of contents:
 - [Prerequisites](#prerequisites)
@@ -36,7 +36,7 @@ than `v4.x.x`, then you should probably choose the appropriate version of this l
 ## <a name="prerequisites"></a> Prerequisites
 This library depends on `Angular v4.0.0`. Older versions contain outdated dependencies, might produce errors.
 
-Also, please ensure that you are using **`Typescript v2.3.4`** or higher.
+Also, please ensure that you are using **`Typescript v2.5.3`** or higher.
 
 ## <a name="getting-started"> Getting started
 ### <a name="installation"> Installation
@@ -264,7 +264,7 @@ The MIT License (MIT)
 Copyright (c) 2017 [Burak Tasci]
 
 [master]: https://github.com/ngx-cache/core/tree/master
-[4.x.x]: https://github.com/ngx-cache/core/tree/4.x.x
+[5.x.x]: https://github.com/ngx-cache/core/tree/5.x.x
 [ng-seed/universal]: https://github.com/ng-seed/universal
 [@ngx-cache/platform-browser]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-browser
 [@ngx-cache/platform-server]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-server
