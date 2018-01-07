@@ -70,7 +70,6 @@ The following examples show the use of an exported function (*instead of an inli
 #### app.server.module.ts
 ```TypeScript
 ...
-import { ServerStateTransferModule, StateTransferService } from '@ngx-universal/state-transfer';
 import { CacheService, CACHE, STORAGE } from '@ngx-cache/core';
 import { ServerCacheModule, FsCacheService } from '@ngx-cache/platform-server';
 import { FsStorageLoader, FsStorageStaticLoader, FsStorageService } from '@ngx-cache/fs-storage';
@@ -112,14 +111,6 @@ export function fsStorageFactory(): FsStorageLoader {
   bootstrap: [AppComponent]
 })
 export class AppServerModule {
-  constructor(private readonly stateTransfer: StateTransferService,
-              private readonly cache: CacheService) {
-  }
-
-  ngOnBootstrap = () => {
-    this.stateTransfer.set(this.cache.key, JSON.stringify(this.cache.dehydrate()));
-    this.stateTransfer.inject();
-  }
 }
 ```
 
@@ -137,7 +128,7 @@ API that runs on node.js
 ## <a name="license"></a> License
 The MIT License (MIT)
 
-Copyright (c) 2017 [Burak Tasci]
+Copyright (c) 2018 [Burak Tasci]
 
 [master]: https://github.com/ngx-cache/core/tree/master
 [5.x.x]: https://github.com/ngx-cache/core/tree/5.x.x

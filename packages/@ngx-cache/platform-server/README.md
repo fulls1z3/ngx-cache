@@ -46,7 +46,6 @@ server platform*).
 
 ### <a name="related-packages"></a> Related packages
 The following packages may be used in conjunction with **`@ngx-cache/platform-server`**:
-- [@ngx-universal/state-transfer]
 - [@ngx-cache/core]
 - [@ngx-cache/fs-storage]
 
@@ -62,25 +61,34 @@ within the imports property of **app.server.module** (*considering the app.serve
 Universal application*).
 - Import `CACHE` injection token using the mapping `'@ngx-cache/core'`, `FsCacheService` using the mapping `'@ngx-cache/platform-server'`.
 - Provide `CACHE` using `FsCacheService`, by calling the [forRoot] static method using the `ServerCacheModule`.
-- Import `ServerStateTransferModule` using the mapping `'@ngx-universal/state-transfer'` and append `ServerStateTransferModule.forRoot({...})`
-within the imports property of **app.server.module**.
 - Import `STORAGE` injection token using the mapping `'@ngx-cache/core'`, `FsStorageService` using the mapping `'@ngx-cache/fs-storage'`.
 - Provide `STORAGE` using `FsStorageService`, by calling the [forRoot] static method using the `ServerCacheModule`.
 - Import `FsStorageLoader` and `fsStorageFactory` using the mapping `'@ngx-cache/fs-storage'`.
 - Provide `FsStorageLoader` using `fsStorageFactory`, by calling the [forRoot] static method using the `ServerCacheModule`.
-- Import `StateTransferService` using the mapping `'@ngx-universal/state-transfer'`, `CacheService` using the mapping `'@ngx-cache/core'`.
-- Pass `StateTransferService` and `CacheService` as constructor params, and copy the implementation of `ngOnBootstrap` method
+- Pass `CacheService` together with `ApplicationRef` and `TransferState` to the implementation of `bootstrapFactory` method
 below.
 
 #### app.server.module.ts
 ```TypeScript
 ...
-import { ServerStateTransferModule, StateTransferService } from '@ngx-universal/state-transfer';
 import { CacheService, CACHE, STORAGE } from '@ngx-cache/core';
 import { ServerCacheModule, FsCacheService } from '@ngx-cache/platform-server';
 import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/fs-storage';
 
 ...
+
+
+export function bootstrapFactory(appRef: ApplicationRef,
+                                 transferState: TransferState,
+                                 cache: CacheService): () => Subscription {
+  return () => appRef.isStable
+    .filter(stable => stable)
+    .first()
+    .subscribe(() => {
+      transferState.set<any>(makeStateKey(cache.key), JSON.stringify(cache.dehydrate()));
+    });
+}
+
 
 @NgModule({
   declarations: [
@@ -90,8 +98,6 @@ import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/
   ...
   imports: [
     ...
-    ServerStateTransferModule.forRoot(),
-    // or, ServerStateTransferModule.forRoot('CUSTOM_STATE_ID'),
     ServerCacheModule.forRoot([
       {
         provide: CACHE,
@@ -108,17 +114,21 @@ import { fsStorageFactory, FsStorageLoader, FsStorageService } from '@ngx-cache/
     ]),
   ],
   ...
+  providers: [
+    {
+      provide: APP_BOOTSTRAP_LISTENER,
+      useFactory: (bootstrapFactory),
+      multi: true,
+      deps: [
+        ApplicationRef,
+        TransferState,
+        CacheService
+      ]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppServerModule {
-  constructor(private readonly stateTransfer: StateTransferService,
-              private readonly cache: CacheService) {
-  }
-
-  ngOnBootstrap = () => {
-    this.stateTransfer.set(this.cache.key, JSON.stringify(this.cache.dehydrate()));
-    this.stateTransfer.inject();
-  }
 }
 ```
 
@@ -130,13 +140,12 @@ export class AppServerModule {
 ## <a name="license"></a> License
 The MIT License (MIT)
 
-Copyright (c) 2017 [Burak Tasci]
+Copyright (c) 2018 [Burak Tasci]
 
 [master]: https://github.com/ngx-cache/core/tree/master
 [5.x.x]: https://github.com/ngx-cache/core/tree/5.x.x
 [ngx-cache]: https://github.com/fulls1z3/ngx-cache
 [ng-seed/universal]: https://github.com/ng-seed/universal
-[@ngx-universal/state-transfer]: https://github.com/fulls1z3/ngx-universal/tree/master/packages/@ngx-universal/state-transfer
 [@ngx-cache/core]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/core
 [@ngx-cache/fs-storage]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/fs-storage
 [forRoot]: https://angular.io/docs/ts/latest/guide/ngmodule.html#!#core-for-root
