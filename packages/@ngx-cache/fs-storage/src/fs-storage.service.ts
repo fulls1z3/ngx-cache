@@ -26,7 +26,7 @@ export class FsStorageService extends Storage {
   private metadata: Map<string, FsItemMetadata>;
   private bytesUsed: number;
 
-  constructor(public readonly loader: FsStorageLoader) {
+  constructor(readonly loader: FsStorageLoader) {
     super();
 
     this.path = resolve(this.loader.path);

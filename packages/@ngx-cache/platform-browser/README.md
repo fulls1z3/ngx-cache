@@ -10,8 +10,8 @@
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
 #### NOTICE
-> This *[4.x.x] branch* is intented to work with `@angular v4.x.x`. If you're developing on a later release of **Angular**
-than `v4.x.x`, then you should probably choose the appropriate version of this library by visiting the *[master] branch*.
+> This *[5.x.x] branch* is intented to work with `@angular v5.x.x`. If you're developing on a later release of **Angular**
+than `v5.x.x`, then you should probably choose the appropriate version of this library by visiting the *[master] branch*.
 
 ## Table of contents:
 - [Prerequisites](#prerequisites)
@@ -19,7 +19,6 @@ than `v4.x.x`, then you should probably choose the appropriate version of this l
   - [Installation](#installation)
 	- [Examples](#examples)
 	- [Related packages](#related-packages)
-	- [Recommended packages](#recommended-packages)
 	- [Adding `@ngx-cache/platform-browser` to your project (SystemJS)](#adding-systemjs)
   - [app.module configuration](#appmodule-config)
     - [Angular (SPA) application](#spa)
@@ -30,7 +29,7 @@ than `v4.x.x`, then you should probably choose the appropriate version of this l
 ## <a name="prerequisites"></a> Prerequisites
 This library depends on `Angular v4.0.0`. Older versions contain outdated dependencies, might produce errors.
 
-Also, please ensure that you are using **`Typescript v2.3.4`** or higher.
+Also, please ensure that you are using **`Typescript v2.5.3`** or higher.
 
 ## <a name="getting-started"> Getting started
 ### <a name="installation"> Installation
@@ -41,20 +40,12 @@ npm install @ngx-cache/platform-browser --save
 
 **Note**: You should have already installed [@ngx-cache/core].
 
-**Note**: If you're developing an **Angular Universal** app, you should have already installed [@ngx-universal/state-transfer]
-also.
-
 ### <a name="examples"></a> Examples
 - [ng-seed/universal] is an officially maintained seed project, showcasing common patterns and best practices for **`@ngx-cache/platform-browser`**.
 
 ### <a name="related-packages"></a> Related packages
 The following packages may be used in conjunction with **`@ngx-cache/platform-browser`**:
 - [@ngx-cache/core]
-
-### <a name="recommended-packages"></a> Recommended packages
-The following package(s) have no dependency for **`@ngx-cache/platform-browser`**, however may provide supplementary/shorthand
-functionality:
-- [@ngx-universal/state-transfer]: provides state transferring features from the **server platform** to the **browser platform**
 
 ### <a name="adding-systemjs"></a> Adding `@ngx-cache/platform-browser` to your project (SystemJS)
 Add `map` for **`@ngx-cache/platform-browser`** in your `systemjs.config`
@@ -110,19 +101,13 @@ Universal application*).
 (*of your choice*) using the mapping `'@ngx-cache/platform-browser'`.
 - Provide `CACHE` using `MemoryCacheService` or `LocalStorageCacheService` (*of your choice*), by calling the [forRoot]
 static method using the `BrowserCacheModule`.
-- Import `BrowserStateTransferModule` and `DEFAULT_STATE_ID` using the mapping `'@ngx-universal/state-transfer'` and append
-`BrowserStateTransferModule.forRoot({...})` within the imports property of **app.browser.module**.
-- Import `STATE_ID` injection token using the mapping `'@ngx-cache/platform-browser'`.
-- Provide `STATE_ID` using the const value`DEFAULT_STATE_ID` (*you can replace this default value with a custom `string`
-value*), by calling the [forRoot] static method using the `BrowserCacheModule`.
 
 #### app.browser.module.ts
 ```TypeScript
 ...
-import { BrowserStateTransferModule, DEFAULT_STATE_ID } from '@ngx-universal/state-transfer';
 import { CACHE } from '@ngx-cache/core';
-import { BrowserCacheModule, MemoryCacheService, STATE_ID } from '@ngx-cache/platform-browser';
-// import { BrowserCacheModule, LocalStorageCacheService, STATE_ID } from '@ngx-cache/platform-browser';
+import { BrowserCacheModule, MemoryCacheService } from '@ngx-cache/platform-browser';
+// import { BrowserCacheModule, LocalStorageCacheService } from '@ngx-cache/platform-browser';
 ...
 
 @NgModule({
@@ -133,16 +118,10 @@ import { BrowserCacheModule, MemoryCacheService, STATE_ID } from '@ngx-cache/pla
   ...
   imports: [
     ...
-    BrowserStateTransferModule.forRoot(),
-    // or, BrowserStateTransferModule.forRoot('CUSTOM_STATE_ID'),
     BrowserCacheModule.forRoot([
       {
         provide: CACHE,
         useClass: MemoryCacheService // or, LocalStorageCacheService
-      },
-      {
-        provide: STATE_ID,
-        useValue: DEFAULT_STATE_ID // or, 'CUSTOM_STATE_ID'
       }
     ]),
   ],
@@ -159,13 +138,12 @@ import { BrowserCacheModule, MemoryCacheService, STATE_ID } from '@ngx-cache/pla
 ## <a name="license"></a> License
 The MIT License (MIT)
 
-Copyright (c) 2017 [Burak Tasci]
+Copyright (c) 2018 [Burak Tasci]
 
 [master]: https://github.com/ngx-cache/core/tree/master
-[4.x.x]: https://github.com/ngx-cache/core/tree/4.x.x
+[5.x.x]: https://github.com/ngx-cache/core/tree/5.x.x
 [ngx-cache]: https://github.com/fulls1z3/ngx-cache
 [ng-seed/universal]: https://github.com/ng-seed/universal
 [@ngx-cache/core]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/core
-[@ngx-universal/state-transfer]: https://github.com/fulls1z3/ngx-universal/tree/master/packages/@ngx-universal/state-transfer
 [forRoot]: https://angular.io/docs/ts/latest/guide/ngmodule.html#!#core-for-root
 [Burak Tasci]: https://github.com/fulls1z3

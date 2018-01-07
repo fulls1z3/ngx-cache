@@ -10,8 +10,8 @@ Cache utility for **Angular**
 > Please support this project by simply putting a Github star. Share this library with friends on Twitter and everywhere else you can.
 
 #### NOTICE
-> This *[4.x.x] branch* is intented to work with `@angular v4.x.x`. If you're developing on a later release of **Angular**
-than `v4.x.x`, then you should probably choose the appropriate version of this library by visiting the *[master] branch*.
+> This *[5.x.x] branch* is intented to work with `@angular v5.x.x`. If you're developing on a later release of **Angular**
+than `v5.x.x`, then you should probably choose the appropriate version of this library by visiting the *[master] branch*.
 
 ## Table of contents:
 - [Prerequisites](#prerequisites)
@@ -36,7 +36,7 @@ than `v4.x.x`, then you should probably choose the appropriate version of this l
 ## <a name="prerequisites"></a> Prerequisites
 This library depends on `Angular v4.0.0`. Older versions contain outdated dependencies, might produce errors.
 
-Also, please ensure that you are using **`Typescript v2.3.4`** or higher.
+Also, please ensure that you are using **`Typescript v2.5.3`** or higher.
 
 ## <a name="getting-started"> Getting started
 ### <a name="installation"> Installation
@@ -56,7 +56,6 @@ The following packages may be used in conjunction with **`@ngx-cache/core`**:
 
 ### <a name="recommended-packages"></a> Recommended packages
 The following package(s) have no dependency for **`@ngx-cache/core`**, however may provide supplementary/shorthand functionality:
-- [@ngx-universal/state-transfer]: provides state transferring features from the **server platform** to the **browser platform**
 - [@ngx-config/core]: provides cache settings from the application settings loaded during application initialization
 
 ### <a name="adding-systemjs"></a> Adding `@ngx-cache/core` to your project (SystemJS)
@@ -155,7 +154,7 @@ You can find detailed information about the usage guidelines for the **server pl
 
 ## <a name="usage"></a> Usage
 `CacheService` has the following properties:
-- `key`: gets the `KEY` of `CacheService`, provided by `CacheLoader`, used as a key during [state transferring](https://github.com/fulls1z3/ngx-universal/tree/master/packages/@ngx-universal/state-transfer)
+- `key`: gets the `KEY` of `CacheService`, provided by `CacheLoader`, used as a key during state transferring
  
 `CacheService` has the following methods:
 - `getInstance(loader?: CacheLoader, platformId?: any, injector?: Injector)`: gets the current instance of `CacheService` 
@@ -169,7 +168,7 @@ object to `CACHE`
 - `remove(key: string | number, wild = false)`: removes some object from `CACHE`, by key
 - `clear()`: removes all objects from `CACHE`
 - `dehydrate()`: converts the data from `CACHE` to JSON (*ex: transferring `CACHE` data from the **server platform** to
-the **client platform** using [@ngx-universal/state-transfer]*)
+the **client platform***)
 - 'rehydrate(json: any)': converts the given JSON value to `CACHE` data
 
 The following example shows simple usage of the `CacheService`. 
@@ -261,15 +260,14 @@ console.log(anyClass.getSomeStringValue2('p2'));
 ## <a name="license"></a> License
 The MIT License (MIT)
 
-Copyright (c) 2017 [Burak Tasci]
+Copyright (c) 2018 [Burak Tasci]
 
 [master]: https://github.com/ngx-cache/core/tree/master
-[4.x.x]: https://github.com/ngx-cache/core/tree/4.x.x
+[5.x.x]: https://github.com/ngx-cache/core/tree/5.x.x
 [ng-seed/universal]: https://github.com/ng-seed/universal
 [@ngx-cache/platform-browser]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-browser
 [@ngx-cache/platform-server]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-server
 [@ngx-cache/fs-storage]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/fs-storage
-[@ngx-universal/state-transfer]: https://github.com/fulls1z3/ngx-universal/tree/master/packages/@ngx-universal/state-transfer
 [@ngx-config/core]: https://github.com/fulls1z3/ngx-config/tree/master/packages/@ngx-config/core
 [forRoot]: https://angular.io/docs/ts/latest/guide/ngmodule.html#!#core-for-root
 [AoT compilation]: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html

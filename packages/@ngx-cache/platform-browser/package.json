@@ -1,6 +1,6 @@
 {
   "name": "@ngx-cache/platform-browser",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "Browser platform implementation of ngx-cache",
   "repository": {
     "type": "git",
@@ -28,11 +28,12 @@
   "es2015": "./@ngx-cache/platform-browser.js",
   "typings": "./platform-browser.d.ts",
   "dependencies": {
-    "tslib": "~1.7.1"
+    "tslib": "~1.8.1"
   },
   "peerDependencies": {
-    "@angular/common": ">=4.0.0 <5.0.0",
-    "@angular/core": ">=4.0.0 <5.0.0",
-    "@ngx-cache/core": ">=4.0.0 <5.0.0"
+    "@angular/common": ">=5.0.0 <6.0.0",
+    "@angular/core": ">=5.0.0 <6.0.0",
+    "@angular/platform-browser": ">=5.0.0 <6.0.0",
+    "@ngx-cache/core": ">=5.0.0 <6.0.0"
   }
 }

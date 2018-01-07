@@ -20,6 +20,7 @@
       "bundle": {
         "globals": {
           "@angular/common": "ng.common",
+          "@angular/platform-browser": "ng.platformBrowser",
           "@ngx-cache/core": "ngxCache_core",
           "@ngx-cache/core/index": "ngxCache_core_index"
         },

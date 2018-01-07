@@ -1,5 +1,6 @@
 // angular
-import { Inject, InjectionToken, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { makeStateKey, TransferState } from '@angular/platform-browser';
 
 // libs
 import { CacheService } from '@ngx-cache/core';
@@ -7,8 +8,6 @@ import { CacheService } from '@ngx-cache/core';
 // module
 export * from './src/local-storage-cache.service';
 export * from './src/memory-cache.service';
-
-export const STATE_ID = new InjectionToken<string>('STATE_ID');
 
 @NgModule()
 export class BrowserCacheModule {
@@ -20,43 +19,27 @@ export class BrowserCacheModule {
   }
 
   constructor(@Optional() @SkipSelf() parentModule: BrowserCacheModule,
-              @Optional() @Inject(STATE_ID) private readonly stateId: string,
+              private readonly transferState: TransferState,
               private readonly cache: CacheService) {
     if (parentModule)
       throw new Error('BrowserCacheModule already loaded; import in BROWSER module only.');
 
-    // TODO: refactor into a lifecycle hook (APP_INITIALIZER)
-    if (stateId) {
-      const defaultValue = {};
-      const serverCache = this.getCacheValue(defaultValue);
-      cache.rehydrate(serverCache);
-    }
+    const serverCache = this.getCacheValue();
+    cache.rehydrate(serverCache);
   }
 
-  private getCacheValue(defaultValue: any): any {
-    const win: any = window;
+  private getCacheValue(): any {
+    const stateKey = makeStateKey(this.cache.key);
+    const state = this.transferState.get<any>(stateKey, {});
 
-    if (!win)
-      return defaultValue;
-
-    if (!win[this.stateId])
-      return defaultValue;
-
-    if (win[this.stateId][this.cache.key]) {
-      let serverCache = defaultValue;
-
+    if (state)
       try {
-        serverCache = JSON.parse(win[this.stateId][this.cache.key]);
+        const serverCache = JSON.parse(state);
+        this.transferState.remove<any>(stateKey);
 
-        if (typeof serverCache !== typeof defaultValue)
-          serverCache = defaultValue;
-      } catch (e) {
-        serverCache = defaultValue;
-      }
+        return serverCache;
+      } catch (e) {/**/}
 
-      return serverCache;
-    }
-
-    return defaultValue;
+    return {};
   }
 }
