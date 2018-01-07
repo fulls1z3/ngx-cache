@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/fulls1z3/ngx-cache/compare/v4.0.0...v5.0.0) (2018-01-07)
+
+
+### Bug Fixes
+
+* fix moduleId for AoT compilation ([#26](https://github.com/fulls1z3/ngx-cache/issues/26)) ([4568c56](https://github.com/fulls1z3/ngx-cache/commit/4568c56)), closes [#25](https://github.com/fulls1z3/ngx-cache/issues/25)
+
+
+### Features
+
+* upgrade to angular 5 ([#59](https://github.com/fulls1z3/ngx-cache/issues/59)) ([626a4b1](https://github.com/fulls1z3/ngx-cache/commit/626a4b1))
+
+
+
 <a name="4.0.1"></a>
 ## [4.0.1](https://github.com/fulls1z3/ngx-cache/compare/v4.0.0...v4.0.1) (2017-09-07)
 
