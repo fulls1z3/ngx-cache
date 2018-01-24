@@ -32,6 +32,9 @@ If you want to file a bug, contribute some code, or improve documentation, pleas
 - [Coding rules](CONTRIBUTING.md#rules)
 - [Change log](CHANGELOG.md)
 
+#### Thanks to
+- [JetBrains], for their support to this open source project with free [WebStorm] licenses.
+
 ## License
 The MIT License (MIT)
 
@@ -41,4 +44,6 @@ Copyright (c) 2018 [Burak Tasci]
 [5.x.x]: https://github.com/ngx-cache/core/tree/5.x.x
 [ngx-cache]: https://github.com/fulls1z3/ngx-cache
 [ng-seed/universal]: https://github.com/ng-seed/universal
+[JetBrains]: https://www.jetbrains.com/community/opensource
+[WebStorm]:   https://www.jetbrains.com/webstorm
 [Burak Tasci]: https://github.com/fulls1z3
