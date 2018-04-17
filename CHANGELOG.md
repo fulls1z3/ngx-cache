@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="6.0.0-rc.1"></a>
+# [6.0.0-rc.1](https://github.com/fulls1z3/ngx-cache/compare/v5.0.0...v6.0.0-rc.1) (2018-04-17)
+
+
+### Features
+
+* **core:** upgrade to angular 6 ([5217483](https://github.com/fulls1z3/ngx-cache/commit/5217483))
+
+
+
 <a name="5.0.0"></a>
 # [5.0.0](https://github.com/fulls1z3/ngx-cache/compare/v4.0.1...v5.0.0) (2018-01-07)
 
