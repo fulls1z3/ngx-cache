@@ -1,8 +1,6 @@
 // libs
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/from';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
+import { Observable, of as observableOf } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 // module
 import { ReturnType } from './models/return-type';
@@ -43,7 +41,7 @@ export function Cached(key: string): any | Observable<any> | Promise<any> {
       cacheKey = CacheService.normalizeKey(cacheKey);
 
       if (!cacheKey || !cache)
-        // tslint:disable-next-line
+      // tslint:disable-next-line
         return method.apply(this, args);
 
       if (cache.has(cacheKey)) {
@@ -52,7 +50,7 @@ export function Cached(key: string): any | Observable<any> | Promise<any> {
         if (cached && cached.data)
           switch (cached.returnType) {
             case ReturnType.Observable:
-              return Observable.of(cached.data);
+              return observableOf(cached.data);
             case ReturnType.Promise:
               return Promise.resolve(cached.data);
             default:
@@ -64,13 +62,15 @@ export function Cached(key: string): any | Observable<any> | Promise<any> {
       const value = method.apply(this, args);
 
       if (isObservable(value))
-        return value.map((res: any) => {
-          cache.set(cacheKey, res, ReturnType.Observable);
+        return value
+          .pipe(
+            map((res: any) => {
+              cache.set(cacheKey, res, ReturnType.Observable);
 
-          return res;
-        });
+              return res;
+            }));
       else if (isPromise(value))
-        return value.then((res: any) => {
+        return (value as any).then((res: any) => {
           cache.set(cacheKey, res, ReturnType.Promise);
 
           return res;

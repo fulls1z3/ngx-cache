@@ -118,10 +118,11 @@ export class CacheService {
   }
 
   rehydrate(json: any): void {
-    Object.keys(json).forEach((key: string) => {
-      key = CacheService.normalizeKey(key);
-      this.cache.setItem(key, json[key]);
-    });
+    Object.keys(json)
+      .forEach((key: string) => {
+        key = CacheService.normalizeKey(key);
+        this.cache.setItem(key, json[key]);
+      });
   }
 
   private parseLifeSpan(lifeSpan: LifeSpan): LifeSpan {

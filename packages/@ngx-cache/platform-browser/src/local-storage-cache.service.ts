@@ -31,9 +31,10 @@ export class LocalStorageCacheService implements Cache {
 
     const res: Array<string> = [];
 
-    Object.keys(localStorage).forEach((key: string) => {
-      res.push(key);
-    });
+    Object.keys(localStorage)
+      .forEach((key: string) => {
+        res.push(key);
+      });
 
     return res;
   }
