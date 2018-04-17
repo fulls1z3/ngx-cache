@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "lib": {
+    "entryFile": "index.ts",
+    "umdModuleIds": {
+      "@ngx-cache/core": "ngxCache_core"
+    }
+  },
+  "dest": "../../../dist/@ngx-cache/platform-browser"
+}

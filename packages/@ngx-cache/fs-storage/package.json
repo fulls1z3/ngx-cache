@@ -26,15 +26,11 @@
     "url": "https://github.com/fulls1z3/ngx-cache/issues"
   },
   "homepage": "https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/fs-storage#readme",
-  "main": "./bundles/fs-storage.umd.js",
-  "module": "./@ngx-cache/fs-storage.es5.js",
-  "es2015": "./@ngx-cache/fs-storage.js",
-  "typings": "./fs-storage.d.ts",
   "dependencies": {
-    "tslib": "~1.8.1"
+    "tslib": "~1.9.0"
   },
   "peerDependencies": {
-    "@angular/core": ">=5.0.0 <6.0.0",
-    "@ngx-cache/core": ">=5.0.0 <6.0.0"
+    "@angular/core": ">=6.0.0 <7.0.0",
+    "@ngx-cache/core": ">=6.0.0 <7.0.0"
   }
 }

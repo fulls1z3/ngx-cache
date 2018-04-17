@@ -21,15 +21,11 @@
     "url": "https://github.com/fulls1z3/ngx-cache/issues"
   },
   "homepage": "https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/core#readme",
-  "main": "./bundles/core.umd.js",
-  "module": "./@ngx-cache/core.es5.js",
-  "es2015": "./@ngx-cache/core.js",
-  "typings": "./core.d.ts",
   "dependencies": {
-    "tslib": "~1.8.1"
+    "tslib": "~1.9.0"
   },
   "peerDependencies": {
-    "@angular/core": ">=5.0.0 <6.0.0",
-    "rxjs": ">=5.0.1"
+    "@angular/core": ">=6.0.0 <7.0.0",
+    "rxjs": ">=6.0.0"
   }
 }

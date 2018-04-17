@@ -6,10 +6,6 @@
     "angular-tslint-rules"
   ],
   "rules": {
-    "pipe-naming": [
-      true,
-      "camelCase",
-      "config"
-    ]
+    "no-dynamic-delete": false
   }
 }

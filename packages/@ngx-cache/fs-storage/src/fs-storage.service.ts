@@ -210,7 +210,10 @@ export class FsStorageService extends Storage {
   }
 
   private deletePath(path: string): void {
-    if (statSync(path).isDirectory()) {
+    const isDirectory = statSync(path)
+      .isDirectory();
+
+    if (isDirectory) {
       this.deleteDirectory(path);
 
       return rmdirSync(path);
