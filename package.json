@@ -42,7 +42,7 @@
     "zone.js": "~0.8.26",
     "request": "~2.85.0",
     "@types/node": "~9.6.5",
-    "@types/jest": "~22.2.3",
+    "@types/jest": "~23.0.0",
     "rimraf": "~2.6.2",
     "ts-node": "~6.0.0",
     "ng-packagr": "~3.0.0-rc.1",
