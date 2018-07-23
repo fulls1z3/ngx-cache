@@ -1,6 +1,6 @@
 {
   "name": "@ngx-cache/platform-server",
-  "version": "6.0.0-rc.1",
+  "version": "6.0.0",
   "description": "Server platform implementation of ngx-cache",
   "repository": {
     "type": "git",
