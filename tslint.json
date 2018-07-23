@@ -6,6 +6,7 @@
     "angular-tslint-rules"
   ],
   "rules": {
-    "no-dynamic-delete": false
+    "no-dynamic-delete": false,
+    "comment-format": [true, "check-lowercase", {"ignore-words": ["TODO", "NOTE"]}]
   }
 }

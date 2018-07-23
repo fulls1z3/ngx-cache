@@ -1,8 +1,8 @@
 # @ngx-cache/fs-storage [![npm version](https://badge.fury.io/js/%40ngx-cache%2Ffs-storage.svg)](https://www.npmjs.com/package/@ngx-cache/fs-storage) [![npm downloads](https://img.shields.io/npm/dm/%40ngx-cache%2Ffs-storage.svg)](https://www.npmjs.com/package/@ngx-cache/fs-storage)
 **Fs storage** for [ngx-cache] (server platform)
 
-[![CircleCI](https://circleci.com/gh/fulls1z3/ngx-cache.svg?style=shield)](https://circleci.com/gh/fulls1z3/ngx-cache)
-[![coverage](https://codecov.io/github/fulls1z3/ngx-cache/coverage.svg?branch=master)](https://codecov.io/gh/fulls1z3/ngx-cache)
+[![CircleCI](https://circleci.com/gh/holidaylab/ngx-cache.svg?style=shield)](https://circleci.com/gh/holidaylab/ngx-cache)
+[![coverage](https://codecov.io/github/holidaylab/ngx-cache/coverage.svg?branch=master)](https://codecov.io/gh/holidaylab/ngx-cache)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
@@ -128,14 +128,14 @@ API that runs on node.js
 ## <a name="license"></a> License
 The MIT License (MIT)
 
-Copyright (c) 2018 [Burak Tasci]
+Copyright (c) 2018 [HolidayLAB]
 
-[master]: https://github.com/ngx-cache/core/tree/master
-[6.x.x]: https://github.com/ngx-cache/core/tree/6.x.x
-[ngx-cache]: https://github.com/fulls1z3/ngx-cache
+[master]: https://github.com/holidaylab/ngx-cache/core/tree/master
+[6.x.x]: https://github.com/holidaylab/ngx-cache/core/tree/6.x.x
+[ngx-cache]: https://github.com/holidaylab/ngx-cache
 [ng-seed/universal]: https://github.com/ng-seed/universal
-[@ngx-cache/core]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/core
-[@ngx-cache/platform-server]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-server
+[@ngx-cache/core]: https://github.com/holidaylab/ngx-cache/tree/master/packages/@ngx-cache/core
+[@ngx-cache/platform-server]: https://github.com/holidaylab/ngx-cache/tree/master/packages/@ngx-cache/platform-server
 [forRoot]: https://angular.io/docs/ts/latest/guide/ngmodule.html#!#core-for-root
 [AoT compilation]: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html
-[Burak Tasci]: https://github.com/fulls1z3
+[HolidayLAB]: https://github.com/holidaylab
