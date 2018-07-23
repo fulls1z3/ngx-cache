@@ -14,7 +14,7 @@
     "rootDir": "./",
     "baseUrl": "",
     "paths": {
-      "@ngx-cache/*": ["../../../dist/@ngx-cache/*"]
+      "@ngx-cache/*": ["../../dist/@ngx-cache/*"]
     },
     "typeRoots": ["../../node_modules/@types"],
     "lib": [
