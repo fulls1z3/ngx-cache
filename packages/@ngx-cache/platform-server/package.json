@@ -4,7 +4,7 @@
   "description": "Server platform implementation of ngx-cache",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fulls1z3/ngx-cache.git"
+    "url": "https://github.com/holidaylab/ngx-cache.git"
   },
   "keywords": [
     "server side",
@@ -16,13 +16,13 @@
   ],
   "author": {
     "name": "Burak Tasci",
-    "email": "me@fulls1z3.com"
+    "email": "b.tasci@holidaylab.io"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fulls1z3/ngx-cache/issues"
+    "url": "https://github.com/holidaylab/ngx-cache/issues"
   },
-  "homepage": "https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-server#readme",
+  "homepage": "https://github.com/holidaylab/ngx-cache/tree/master/packages/@ngx-cache/platform-server#readme",
   "dependencies": {
     "tslib": "~1.9.0"
   },
