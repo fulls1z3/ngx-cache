@@ -4,18 +4,18 @@
   "description": "Cache utility for Angular",
   "repository": {
     "type": "git",
-    "url": "https://github.com/holidaylab/ngx-cache.git"
+    "url": "https://github.com/fulls1z3/ngx-cache.git"
   },
   "keywords": [],
   "author": {
     "name": "Burak Tasci",
-    "email": "b.tasci@holidaylab.io"
+    "email": "me@fulls1z3.com"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/holidaylab/ngx-cache/issues"
+    "url": "https://github.com/fulls1z3/ngx-cache/issues"
   },
-  "homepage": "https://github.com/holidaylab/ngx-cache/core#readme",
+  "homepage": "https://github.com/fulls1z3/ngx-cache/core#readme",
   "scripts": {
     "clean": "rimraf dist",
     "build:core": "ts-node tools/build/packager.ts core",

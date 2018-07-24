@@ -1,8 +1,8 @@
 # @ngx-cache/core [![npm version](https://badge.fury.io/js/%40ngx-cache%2Fcore.svg)](https://www.npmjs.com/package/@ngx-cache/core) [![npm downloads](https://img.shields.io/npm/dm/%40ngx-cache%2Fcore.svg)](https://www.npmjs.com/package/@ngx-cache/core)
 Cache utility for **Angular**
 
-[![CircleCI](https://circleci.com/gh/holidaylab/ngx-cache.svg?style=shield)](https://circleci.com/gh/holidaylab/ngx-cache)
-[![coverage](https://codecov.io/github/holidaylab/ngx-cache/coverage.svg?branch=master)](https://codecov.io/gh/holidaylab/ngx-cache)
+[![CircleCI](https://circleci.com/gh/fulls1z3/ngx-cache.svg?style=shield)](https://circleci.com/gh/fulls1z3/ngx-cache)
+[![coverage](https://codecov.io/github/fulls1z3/ngx-cache/coverage.svg?branch=master)](https://codecov.io/gh/fulls1z3/ngx-cache)
 [![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![Angular Style Guide](https://mgechev.github.io/angular2-style-guide/images/badge.svg)](https://angular.io/styleguide)
@@ -145,12 +145,12 @@ platform implementations to begin using caching features.
 ## <a name="browser-platform-impl"></a> SPA/Browser platform implementation
 [@ngx-cache/platform-browser] provides the **SPA/Browser platform** implementation (*ex: `MemoryCacheService`, `LocalStorageCacheService`*).
 
-You can find detailed information about the usage guidelines for the **SPA/Browser platform** [here](https://github.com/holidaylab/ngx-cache/tree/master/packages/@ngx-cache/platform-browser).
+You can find detailed information about the usage guidelines for the **SPA/Browser platform** [here](https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-browser).
 
 ## <a name="server-platform-impl"></a> Server platform implementation
 [@ngx-cache/platform-server] provides the **server platform** implementation (*ex: `FsCacheService`*).
 
-You can find detailed information about the usage guidelines for the **server platform** [here](https://github.com/holidaylab/ngx-cache/tree/master/packages/@ngx-cache/platform-server).
+You can find detailed information about the usage guidelines for the **server platform** [here](https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-server).
 
 ## <a name="usage"></a> Usage
 `CacheService` has the following properties:
@@ -260,15 +260,15 @@ console.log(anyClass.getSomeStringValue2('p2'));
 ## <a name="license"></a> License
 The MIT License (MIT)
 
-Copyright (c) 2018 [HolidayLAB]
+Copyright (c) 2018 [Burak Tasci]
 
-[master]: https://github.com/holidaylab/ngx-cache/core/tree/master
-[6.x.x]: https://github.com/holidaylab/ngx-cache/core/tree/6.x.x
+[master]: https://github.com/fulls1z3/ngx-cache/core/tree/master
+[6.x.x]: https://github.com/fulls1z3/ngx-cache/core/tree/6.x.x
 [ng-seed/universal]: https://github.com/ng-seed/universal
-[@ngx-cache/platform-browser]: https://github.com/holidaylab/ngx-cache/tree/master/packages/@ngx-cache/platform-browser
-[@ngx-cache/platform-server]: https://github.com/holidaylab/ngx-cache/tree/master/packages/@ngx-cache/platform-server
-[@ngx-cache/fs-storage]: https://github.com/holidaylab/ngx-cache/tree/master/packages/@ngx-cache/fs-storage
-[@ngx-config/core]: https://github.com/holidaylab/ngx-config/tree/master/packages/@ngx-config/core
+[@ngx-cache/platform-browser]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-browser
+[@ngx-cache/platform-server]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-server
+[@ngx-cache/fs-storage]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/fs-storage
+[@ngx-config/core]: https://github.com/fulls1z3/ngx-config/tree/master/packages/@ngx-config/core
 [forRoot]: https://angular.io/docs/ts/latest/guide/ngmodule.html#!#core-for-root
 [AoT compilation]: https://angular.io/docs/ts/latest/cookbook/aot-compiler.html
-[HolidayLAB]: https://github.com/holidaylab
+[Burak Tasci]: https://github.com/fulls1z3
