@@ -1,16 +1,12 @@
-// angular
 import { Injectable } from '@angular/core';
-
-// libs
-import { join, resolve } from 'path';
-import { mkdirSync, readdirSync, readFileSync, rmdirSync, statSync, unlinkSync, writeFileSync } from 'fs';
-import { EventEmitter } from 'events';
 import { Storage } from '@ngx-cache/core';
+import { EventEmitter } from 'events';
+import { mkdirSync, readdirSync, readFileSync, rmdirSync, statSync, unlinkSync, writeFileSync } from 'fs';
+import { join, resolve } from 'path';
 
-// module
+import { FsStorageLoader } from './fs-storage.loader';
 import { FsEvent } from './models/fs-event';
 import { FsItemMetadata } from './models/fs-item-metadata';
-import { FsStorageLoader } from './fs-storage.loader';
 
 @Injectable()
 export class FsStorageService extends Storage {
@@ -32,8 +28,9 @@ export class FsStorageService extends Storage {
     this.path = resolve(this.loader.path);
     this.quota = this.loader.quota;
 
-    if (this.instances[this.path])
+    if (this.instances[this.path]) {
       return this.instances[this.path];
+    }
 
     this.length = 0;
     this.keys = [];
@@ -44,8 +41,9 @@ export class FsStorageService extends Storage {
     try {
       let stat = statSync(this.path);
 
-      if (stat && !stat.isDirectory())
+      if (!stat.hasOwnProperty('isDirectory')) {
         throw new Error(`A file exists at the location ${this.path} when trying to create/open localStorage`);
+      }
 
       this.length = 0;
       this.keys = readdirSync(this.path);
@@ -62,7 +60,7 @@ export class FsStorageService extends Storage {
 
         stat = this.getStats(key);
 
-        if (stat && !stat.size) {
+        if (!stat.hasOwnProperty('size')) {
           item.size = stat.size;
           this.metadata[decodedKey] = item;
           this.bytesUsed += stat.size;
@@ -85,8 +83,9 @@ export class FsStorageService extends Storage {
     let item = this.metadata[key];
     const oldLength = item ? item.size : 0;
 
-    if (this.bytesUsed - oldLength + value.toString().length > this.quota)
+    if (this.bytesUsed - oldLength + Number(value.toString().length) > this.quota) {
       throw new Error(`Disk quota (${this.quota / 1024}KB) has been reached!`);
+    }
 
     const encodedKey = encodeURIComponent(key);
     const filename = join(this.path, encodedKey);
@@ -94,7 +93,7 @@ export class FsStorageService extends Storage {
     writeFileSync(filename, value.toString(), 'utf8');
 
     if (!item) {
-      item = new FsItemMetadata(encodedKey, (this.keys.push(key)) - 1);
+      item = new FsItemMetadata(encodedKey, this.keys.push(key) - 1);
       item.size = value.toString().length;
 
       this.length += 1;
@@ -102,8 +101,9 @@ export class FsStorageService extends Storage {
       this.bytesUsed += value.toString().length;
     }
 
-    if (!hasListeners)
+    if (!hasListeners) {
       return false;
+    }
 
     const e = new FsEvent(key, oldValue, value, this.pid);
 
@@ -143,8 +143,9 @@ export class FsStorageService extends Storage {
       metadataRef.forEach((k: any) => {
         const i = this.metadata[k];
 
-        if (i.index > item.index)
+        if (i.index > item.index) {
           i.index -= 1;
+        }
       });
 
       const itemPath = join(this.path, item.key);
@@ -155,8 +156,9 @@ export class FsStorageService extends Storage {
         // NOTE: seems like path can't be deleted
       }
 
-      if (!hasListeners)
+      if (!hasListeners) {
         return false;
+      }
 
       const e = new FsEvent(key, oldValue, undefined, this.pid);
 
@@ -180,8 +182,9 @@ export class FsStorageService extends Storage {
 
     const hasListeners = EventEmitter.listenerCount(this, 'fs-storage');
 
-    if (!hasListeners)
+    if (!hasListeners) {
       return false;
+    }
 
     const e = new FsEvent(undefined, undefined, undefined, this.pid);
 
@@ -198,27 +201,25 @@ export class FsStorageService extends Storage {
     }
   }
 
-  private deleteDirectory(dirPath: string): Array<any> {
+  private deleteDirectory(dirPath: string): void {
     const contents = readdirSync(dirPath);
-    const results: Array<any> = [];
 
     contents.forEach((path: string) => {
-      results.push(this.deletePath(join(dirPath, path)));
+      const joined = join(dirPath, path);
+      this.deletePath(joined);
     });
-
-    return results;
   }
 
   private deletePath(path: string): void {
-    const isDirectory = statSync(path)
-      .isDirectory();
+    const isDirectory = statSync(path).isDirectory();
 
     if (isDirectory) {
       this.deleteDirectory(path);
 
-      return rmdirSync(path);
-    } else
-      return unlinkSync(path);
+      rmdirSync(path);
+    } else {
+      unlinkSync(path);
+    }
   }
 
   private deleteInstance(): void {

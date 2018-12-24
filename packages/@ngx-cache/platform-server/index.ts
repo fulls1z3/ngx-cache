@@ -1,7 +1,5 @@
-// angular
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 
-// module
 export * from './src/fs-cache.service';
 
 @NgModule()
@@ -13,8 +11,9 @@ export class ServerCacheModule {
     };
   }
 
-  constructor(@Optional() @SkipSelf() parentModule: ServerCacheModule) {
-    if (parentModule)
+  constructor(@Optional() @SkipSelf() parentModule?: ServerCacheModule) {
+    if (parentModule) {
       throw new Error('ServerCacheModule already loaded; import in SERVER module only.');
+    }
   }
 }

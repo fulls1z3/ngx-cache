@@ -1,12 +1,10 @@
-// angular
 import { Inject, Injectable, InjectionToken, Injector, PLATFORM_ID } from '@angular/core';
 
-// module
-import { LifeSpan } from './models/life-span';
-import { CacheValue } from './models/cache-value';
-import { ReturnType } from './models/return-type';
 import { Cache } from './cache';
 import { CacheLoader } from './cache.loader';
+import { CacheValue } from './models/cache-value';
+import { LifeSpan } from './models/life-span';
+import { ReturnType } from './models/return-type';
 
 export const CACHE = new InjectionToken<Cache>('CACHE');
 
@@ -22,25 +20,22 @@ export class CacheService {
   }
 
   static normalizeKey(key: string | number): string {
-    if (CacheService.validateKey(key))
+    if (CacheService.validateKey(key)) {
       throw new Error('Please provide a valid key to save in the CacheService');
+    }
 
     return `${key}`;
   }
 
   private static validateKey(key: string | number): boolean {
-    return !key
-      || typeof key === 'boolean'
-      || Number.isNaN(key as number);
+    return !key || typeof key === 'boolean' || Number.isNaN(key as number);
   }
 
   private static validateValue(value: CacheValue): boolean {
     return value.lifeSpan.expiry && value.lifeSpan.expiry > Date.now();
   }
 
-  constructor(readonly loader: CacheLoader,
-              @Inject(PLATFORM_ID) private readonly platformId: any,
-              private readonly injector: Injector) {
+  constructor(readonly loader: CacheLoader, @Inject(PLATFORM_ID) private readonly platformId: any, private readonly injector: Injector) {
     CacheService.instance = this;
 
     this.cache = this.injector.get(CACHE);
@@ -52,54 +47,55 @@ export class CacheService {
   }
 
   has(key: string | number): boolean {
-    key = CacheService.normalizeKey(key);
+    const normalized = CacheService.normalizeKey(key);
 
-    return this.cache.keys.indexOf(key) !== -1;
+    return this.cache.keys.indexOf(normalized) !== -1;
   }
 
   set(key: string | number, value: any, returnType: ReturnType = ReturnType.Scalar, lifeSpan?: LifeSpan): boolean {
-    key = CacheService.normalizeKey(key);
-    lifeSpan = lifeSpan || this.lifeSpan;
+    const normalized = CacheService.normalizeKey(key);
 
-    return this.cache.setItem(key, {
+    return this.cache.setItem(normalized, {
       data: value,
       returnType,
-      lifeSpan: this.parseLifeSpan(lifeSpan)
+      lifeSpan: this.parseLifeSpan(lifeSpan ? lifeSpan : this.lifeSpan)
     });
   }
 
   get(key: string | number): any {
-    key = CacheService.normalizeKey(key);
-    const cached = this.cache.getItem(key);
-    let res;
+    const normalized = CacheService.normalizeKey(key);
+    const cached = this.cache.getItem(normalized);
 
-    if (cached)
-      if (CacheService.validateValue(cached))
-        res = cached.data;
-      else
-        this.remove(key);
+    if (cached) {
+      if (CacheService.validateValue(cached)) {
+        return cached.data;
+      } else {
+        this.remove(normalized);
+      }
+    }
 
-    return res;
+    return undefined;
   }
 
-  getWithMetadata(key: string | number): CacheValue {
-    key = CacheService.normalizeKey(key);
-    const cached = this.cache.getItem(key);
-    let res;
+  getWithMetadata(key: string | number): CacheValue | undefined {
+    const normalized = CacheService.normalizeKey(key);
+    const cached = this.cache.getItem(normalized);
 
-    if (cached)
-      if (CacheService.validateValue(cached))
-        res = cached;
-      else
+    if (cached) {
+      if (CacheService.validateValue(cached)) {
+        return cached;
+      } else {
         this.remove(key);
+      }
+    }
 
-    return res;
+    return undefined;
   }
 
   remove(key: string | number, wild = false): void {
-    key = CacheService.normalizeKey(key);
+    const normalized = CacheService.normalizeKey(key);
 
-    this.cache.removeItem(key, wild);
+    this.cache.removeItem(normalized, wild);
   }
 
   clear(): void {
@@ -107,7 +103,7 @@ export class CacheService {
   }
 
   dehydrate(): any {
-    const keys = this.cache.keys || [];
+    const keys = this.cache.keys.length ? this.cache.keys : [];
     const res = {};
 
     keys.forEach((key: string) => {
@@ -118,16 +114,15 @@ export class CacheService {
   }
 
   rehydrate(json: any): void {
-    Object.keys(json)
-      .forEach((key: string) => {
-        key = CacheService.normalizeKey(key);
-        this.cache.setItem(key, json[key]);
-      });
+    Object.keys(json).forEach((key: string) => {
+      const normalized = CacheService.normalizeKey(key);
+      this.cache.setItem(normalized, json[normalized]);
+    });
   }
 
   private parseLifeSpan(lifeSpan: LifeSpan): LifeSpan {
     return {
-      expiry: lifeSpan.expiry || (lifeSpan.TTL ? Date.now() + (lifeSpan.TTL * 1000) : this.lifeSpan.expiry),
+      expiry: lifeSpan.expiry || (lifeSpan.TTL ? Date.now() + lifeSpan.TTL * 1000 : this.lifeSpan.expiry),
       TTL: lifeSpan.TTL || this.lifeSpan.TTL
     };
   }

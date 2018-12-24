@@ -1,8 +1,5 @@
-// angular
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, PLATFORM_ID } from '@angular/core';
-
-// libs
 import { Cache, CacheValue } from '@ngx-cache/core';
 
 export class MemoryCacheService implements Cache {
@@ -13,22 +10,25 @@ export class MemoryCacheService implements Cache {
   }
 
   constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {
-    if (!this.isEnabled)
+    if (!this.isEnabled) {
       throw new Error('MemoryCacheService is not supported outside `browser` platform!');
+    }
 
     this.memoryStorage = new Map<string, CacheValue>();
   }
 
   get keys(): Array<string> {
-    if (!this.isEnabled)
+    if (!this.isEnabled) {
       return undefined;
+    }
 
     return Array.from(this.memoryStorage.keys());
   }
 
   setItem(key: string, value: CacheValue): boolean {
-    if (!this.isEnabled)
+    if (!this.isEnabled) {
       return false;
+    }
 
     this.memoryStorage.set(key, value);
 
@@ -36,27 +36,33 @@ export class MemoryCacheService implements Cache {
   }
 
   getItem(key: string): CacheValue {
-    if (!this.isEnabled)
+    if (!this.isEnabled) {
       return undefined;
+    }
 
     return this.memoryStorage.get(key);
   }
 
   removeItem(key: string, wild = false): void {
-    if (!this.isEnabled)
+    if (!this.isEnabled) {
       return;
+    }
 
     this.memoryStorage.delete(key);
 
-    if (wild)
-      for (const item of this.keys)
-        if (item.indexOf(key) === 0)
+    if (wild) {
+      for (const item of this.keys) {
+        if (item.indexOf(key) === 0) {
           this.memoryStorage.delete(item);
+        }
+      }
+    }
   }
 
   clear(): void {
-    if (!this.isEnabled)
+    if (!this.isEnabled) {
       return;
+    }
 
     this.memoryStorage.clear();
   }

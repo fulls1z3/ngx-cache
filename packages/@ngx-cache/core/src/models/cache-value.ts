@@ -1,4 +1,3 @@
-// module
 import { LifeSpan } from './life-span';
 import { ReturnType } from './return-type';
 

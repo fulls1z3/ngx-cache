@@ -1,4 +1,3 @@
-// libs
 import { EventEmitter } from 'events';
 
 export abstract class Storage extends EventEmitter {

@@ -1,14 +1,12 @@
-// angular
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, PLATFORM_ID } from '@angular/core';
-
-// libs
 import { Cache, CacheValue } from '@ngx-cache/core';
 
 export class LocalStorageCacheService implements Cache {
   private get isEnabled(): boolean {
-    if (!isPlatformBrowser(this.platformId))
+    if (!isPlatformBrowser(this.platformId)) {
       return false;
+    }
 
     try {
       localStorage.setItem('test', 'test');
@@ -21,27 +19,29 @@ export class LocalStorageCacheService implements Cache {
   }
 
   constructor(@Inject(PLATFORM_ID) private readonly platformId: any) {
-    if (!isPlatformBrowser(platformId))
+    if (!isPlatformBrowser(platformId)) {
       throw new Error('LocalStorageCacheService is not supported outside `browser` platform!');
+    }
   }
 
   get keys(): Array<string> {
-    if (!this.isEnabled)
+    if (!this.isEnabled) {
       return undefined;
+    }
 
     const res: Array<string> = [];
 
-    Object.keys(localStorage)
-      .forEach((key: string) => {
-        res.push(key);
-      });
+    Object.keys(localStorage).forEach((key: string) => {
+      res.push(key);
+    });
 
     return res;
   }
 
   setItem(key: string, value: CacheValue): boolean {
-    if (!this.isEnabled)
+    if (!this.isEnabled) {
       return false;
+    }
 
     try {
       localStorage.setItem(key, JSON.stringify(value));
@@ -53,29 +53,36 @@ export class LocalStorageCacheService implements Cache {
   }
 
   getItem(key: string): CacheValue {
-    if (!this.isEnabled)
+    if (!this.isEnabled) {
       return undefined;
+    }
 
-    const value = localStorage.getItem(key);
+    const stored = localStorage.getItem(key);
+    const cacheContent = stored ? stored : '{}';
 
-    return value ? JSON.parse(value) : undefined;
+    return JSON.parse(cacheContent);
   }
 
   removeItem(key: string, wild = false): void {
-    if (!this.isEnabled)
+    if (!this.isEnabled) {
       return;
+    }
 
     localStorage.removeItem(key);
 
-    if (wild)
-      for (const item of this.keys)
-        if (item.indexOf(key) === 0)
+    if (wild) {
+      for (const item of this.keys) {
+        if (item.indexOf(key) === 0) {
           localStorage.removeItem(item);
+        }
+      }
+    }
   }
 
   clear(): void {
-    if (!this.isEnabled)
+    if (!this.isEnabled) {
       return;
+    }
 
     localStorage.clear();
   }

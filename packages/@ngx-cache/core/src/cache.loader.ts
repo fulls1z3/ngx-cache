@@ -1,4 +1,3 @@
-// module
 import { CacheSettings } from './models/cache-settings';
 import { LifeSpan } from './models/life-span';
 
@@ -17,12 +16,13 @@ export class CacheStaticLoader implements CacheLoader {
     return this.providedSettings.lifeSpan;
   }
 
-  constructor(private readonly providedSettings: CacheSettings = {
-    key: 'NGX_CACHE',
-    lifeSpan: {
-      expiry: Number.MAX_VALUE,
-      TTL: Number.MAX_VALUE
+  constructor(
+    private readonly providedSettings: CacheSettings = {
+      key: 'NGX_CACHE',
+      lifeSpan: {
+        expiry: Number.MAX_VALUE,
+        TTL: Number.MAX_VALUE
+      }
     }
-  }) {
-  }
+  ) {}
 }
