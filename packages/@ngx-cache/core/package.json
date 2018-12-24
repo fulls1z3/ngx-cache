@@ -1,6 +1,6 @@
 {
   "name": "@ngx-cache/core",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "Cache utility for Angular",
   "repository": {
     "type": "git",
@@ -25,7 +25,7 @@
     "tslib": "~1.9.0"
   },
   "peerDependencies": {
-    "@angular/core": ">=6.0.0 <7.0.0",
+    "@angular/core": ">=7.0.0 <8.0.0",
     "rxjs": ">=6.0.0"
   }
 }

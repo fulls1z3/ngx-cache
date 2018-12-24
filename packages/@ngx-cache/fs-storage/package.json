@@ -1,6 +1,6 @@
 {
   "name": "@ngx-cache/fs-storage",
-  "version": "6.0.0",
+  "version": "7.0.0",
   "description": "Fs storage for ngx-cache (server platform)",
   "repository": {
     "type": "git",
@@ -30,7 +30,7 @@
     "tslib": "~1.9.0"
   },
   "peerDependencies": {
-    "@angular/core": ">=6.0.0 <7.0.0",
-    "@ngx-cache/core": ">=6.0.0 <7.0.0"
+    "@angular/core": ">=7.0.0 <8.0.0",
+    "@ngx-cache/core": ">=7.0.0 <8.0.0"
   }
 }
