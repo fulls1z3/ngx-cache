@@ -5,18 +5,14 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
     "importHelpers": true,
     "baseUrl": "",
     "paths": {
       "@ngx-cache/*": ["./packages/@ngx-cache/*"]
     },
-    "lib": [
-      "es2017",
-      "dom"
-    ]
+    "lib": ["es2017", "dom"]
   },
-  "include": [
-    "tools/**/*.ts",
-    "packages/**/*.ts"
-  ]
+  "include": ["tools/**/*.ts", "packages/**/*.ts"]
 }

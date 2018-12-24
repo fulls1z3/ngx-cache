@@ -1,12 +1,24 @@
 {
-  "rulesDirectory": [
-    "node_modules/codelyzer"
-  ],
-  "extends": [
-    "angular-tslint-rules"
-  ],
+  "rulesDirectory": ["node_modules/codelyzer"],
+  "extends": ["angular-tslint-rules", "tslint-config-prettier"],
   "rules": {
-    "no-dynamic-delete": false,
-    "comment-format": [true, "check-lowercase", {"ignore-words": ["TODO", "NOTE"]}]
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "case-insensitive",
+        "grouped-imports": true
+      }
+    ],
+    "strict-boolean-expressions": [
+      true,
+      "allow-undefined-union",
+      "allow-null-union",
+      "allow-string",
+      "allow-enum",
+      "allow-number",
+      "allow-mix"
+    ],
+    "no-dynamic-delete": false
   }
 }
