@@ -1,6 +1,6 @@
 {
   "name": "@ngx-cache/platform-browser",
-  "version": "7.0.0",
+  "version": "0.0.0",
   "description": "Browser platform implementation of ngx-cache",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   ],
   "author": {
     "name": "Burak Tasci",
-    "email": "me@fulls1z3.com"
+    "email": "mail@buraktasci.com"
   },
   "license": "MIT",
   "bugs": {
@@ -31,5 +31,8 @@
     "@angular/core": ">=7.0.0 <8.0.0",
     "@angular/platform-browser": ">=7.0.0 <8.0.0",
     "@ngx-cache/core": ">=7.0.0 <8.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

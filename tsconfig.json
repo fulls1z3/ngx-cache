@@ -8,11 +8,15 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "importHelpers": true,
-    "baseUrl": "",
+    "baseUrl": ".",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
     "paths": {
-      "@ngx-cache/*": ["./packages/@ngx-cache/*"]
-    },
-    "lib": ["es2017", "dom"]
+      "@ngx-cache/core": ["packages/@ngx-cache/core/src/index.ts"],
+      "@ngx-cache/platform-browser": ["packages/@ngx-cache/platform-browser/src/index.ts"],
+      "@ngx-cache/platform-server": ["packages/@ngx-cache/platform-server/src/index.ts"],
+      "@ngx-cache/fs-storage": ["packages/@ngx-cache/fs-storage/src/index.ts"]
+    }
   },
   "include": ["tools/**/*.ts", "packages/**/*.ts"]
 }

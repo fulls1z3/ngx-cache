@@ -1,7 +1,5 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 
-export * from './src/fs-cache.service';
-
 @NgModule()
 export class ServerCacheModule {
   static forRoot(configuredProviders?: Array<any>): ModuleWithProviders {

@@ -1,13 +1,13 @@
 {
   "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../../dist/@ngx-cache/fs-storage",
   "lib": {
-    "entryFile": "index.ts",
+    "entryFile": "src/index.ts",
     "umdModuleIds": {
       "path": "path",
       "fs": "fs",
       "events": "events",
       "@ngx-cache/core": "ngxCache_core"
     }
-  },
-  "dest": "../../../dist/@ngx-cache/fs-storage"
+  }
 }

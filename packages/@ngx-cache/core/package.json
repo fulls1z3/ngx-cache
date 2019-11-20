@@ -1,6 +1,6 @@
 {
   "name": "@ngx-cache/core",
-  "version": "7.0.0",
+  "version": "0.0.0",
   "description": "Cache utility for Angular",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
   ],
   "author": {
     "name": "Burak Tasci",
-    "email": "me@fulls1z3.com"
+    "email": "mail@buraktasci.com"
   },
   "license": "MIT",
   "bugs": {
@@ -27,5 +27,8 @@
   "peerDependencies": {
     "@angular/core": ">=7.0.0 <8.0.0",
     "rxjs": ">=6.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

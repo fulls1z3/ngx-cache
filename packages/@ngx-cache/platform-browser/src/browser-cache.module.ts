@@ -2,9 +2,6 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 import { makeStateKey, TransferState } from '@angular/platform-browser';
 import { CacheService } from '@ngx-cache/core';
 
-export * from './src/local-storage-cache.service';
-export * from './src/memory-cache.service';
-
 @NgModule()
 export class BrowserCacheModule {
   static forRoot(configuredProviders?: Array<any>): ModuleWithProviders {

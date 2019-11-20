@@ -4,20 +4,7 @@ module.exports = {
     'scope-enum': [
       2,
       'always',
-      [
-        'project-wide',
-        'core',
-        'fs-storage',
-        'platform-browser',
-        'platform-server',
-        'package',
-        'npm',
-        'webpack',
-        'circle',
-        'lint',
-        'packaging',
-        'changelog'
-      ]
+      ['core', 'fs-storage', 'platform-browser', 'platform-server', 'package', 'npm', 'circle', 'lint', 'packaging', 'changelog']
     ]
   }
 };
