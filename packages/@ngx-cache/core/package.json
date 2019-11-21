@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/core#readme",
   "dependencies": {
-    "tslib": "~1.10.0"
+    "tslib": "^1.10.0"
   },
   "peerDependencies": {
     "@angular/core": ">=8.0.0 <9.0.0",
