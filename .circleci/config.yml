@@ -7,6 +7,9 @@ jobs:
           JOBS: 1
     steps:
       - checkout
+      - run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+      - run: git config --global user.email ${GH_USER_EMAIL}
+      - run: git config --global user.name ${GH_USER_NAME}
       - run: sudo npm install -g yarn@0
       - run: sudo yarn global add greenkeeper-lockfile@1
       - run: sudo yarn global add lerna@3
@@ -22,7 +25,8 @@ jobs:
       # - run: yarn test:ci
       - run: yarn build
       - run: yarn ci:after
-      - run: lerna version --force-publish --create-release github --no-changelog --yes && lerna publish --contents dist
+      - run: lerna version --create-release github --yes
+      - run: lerna publish from-package --yes
       - run: bash <(curl -s https://codecov.io/bash)
       - store_artifacts:
           path: coverage
