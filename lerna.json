@@ -1,4 +1,10 @@
 {
   "packages": ["packages/@ngx-cache/*"],
-  "version": "independent"
+  "version": "independent",
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "conventionalCommits": true
+    }
+  }
 }
