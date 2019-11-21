@@ -1,6 +1,6 @@
 {
   "name": "@ngx-cache/platform-browser",
-  "version": "0.0.0",
+  "version": "8.0.0",
   "description": "Browser platform implementation of ngx-cache",
   "repository": {
     "type": "git",

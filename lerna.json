@@ -1,6 +1,8 @@
 {
-  "packages": ["packages/@ngx-cache/*"],
-  "version": "7.0.0",
+  "packages": [
+    "packages/@ngx-cache/*"
+  ],
+  "version": "8.0.0",
   "npmClient": "yarn",
   "command": {
     "publish": {
