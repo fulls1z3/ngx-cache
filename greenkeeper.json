@@ -1,0 +1,13 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "packages/@ngx-cache/core/package.json",
+        "packages/@ngx-cache/fs-storage/package.json",
+        "packages/@ngx-cache/platform-browser/package.json",
+        "packages/@ngx-cache/platform-server/package.json"
+      ]
+    }
+  }
+}
