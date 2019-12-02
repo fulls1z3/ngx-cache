@@ -4,7 +4,7 @@
   "description": "Cache utility for Angular",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fulls1z3/ngx-cache"
+    "url": "https://github.com/fulls1z3/ngx-cache.git"
   },
   "keywords": [],
   "author": {
