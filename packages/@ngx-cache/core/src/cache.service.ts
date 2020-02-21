@@ -66,7 +66,7 @@ export class CacheService {
     const normalized = CacheService.normalizeKey(key);
     const cached = this.cache.getItem(normalized);
 
-    if (cached) {
+    if (Object.entries(cached).length !== 0 && cached.constructor === Object) {
       if (CacheService.validateValue(cached)) {
         return cached.data;
       } else {
@@ -81,7 +81,7 @@ export class CacheService {
     const normalized = CacheService.normalizeKey(key);
     const cached = this.cache.getItem(normalized);
 
-    if (cached) {
+    if (Object.entries(cached).length !== 0 && cached.constructor === Object) {
       if (CacheService.validateValue(cached)) {
         return cached;
       } else {
