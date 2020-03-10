@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.3](https://github.com/fulls1z3/ngx-cache/compare/v8.0.2...v8.0.3) (2020-03-10)
+
+
+### Bug Fixes
+
+* **core:** fix value.lifeSpan is undefined ([#129](https://github.com/fulls1z3/ngx-cache/issues/129)) ([c7fb378](https://github.com/fulls1z3/ngx-cache/commit/c7fb3780365835be3e0db3b629ce7992b7e92b24))
+
+
+
+
+
 ## [8.0.2](https://github.com/fulls1z3/ngx-cache/compare/v8.0.1...v8.0.2) (2020-03-10)
 
 

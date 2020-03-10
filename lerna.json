@@ -2,7 +2,7 @@
   "packages": [
     "packages/@ngx-cache/*"
   ],
-  "version": "8.0.2",
+  "version": "8.0.3",
   "npmClient": "yarn",
   "command": {
     "publish": {
