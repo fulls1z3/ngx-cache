@@ -49,7 +49,7 @@ export class CacheService {
   has(key: string | number): boolean {
     const normalized = CacheService.normalizeKey(key);
 
-    return this.cache.keys.indexOf(normalized) !== -1;
+    return this.cache.keys.indexOf(normalized) !== -1 && CacheService.validateValue(this.cache.getItem(normalized));
   }
 
   set(key: string | number, value: any, returnType: ReturnType = ReturnType.Scalar, lifeSpan?: LifeSpan): boolean {
