@@ -23,9 +23,6 @@
     "url": "https://github.com/fulls1z3/ngx-cache/issues"
   },
   "homepage": "https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-server#readme",
-  "dependencies": {
-    "tslib": "^1.10.0"
-  },
   "peerDependencies": {
     "@angular/common": ">=9.0.0 <10.0.0",
     "@angular/core": ">=9.0.0 <10.0.0",
