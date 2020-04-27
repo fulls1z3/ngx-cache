@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0](https://github.com/fulls1z3/ngx-cache/compare/v8.1.0...v9.0.0) (2020-04-27)
+
+
+### Features
+
+* **package:** migrate to ng9 ([fd4d959](https://github.com/fulls1z3/ngx-cache/commit/fd4d959d7f15535a5f54d70defb3b9f58dc7bdf9))
+* **package:** migrate to ng9 ([952f169](https://github.com/fulls1z3/ngx-cache/commit/952f169d1714d14849a1ffff18c77fda9128bd97))
+
+
+### BREAKING CHANGES
+
+* **package:** ng9
+* **package:** ng9
+
+
+
+
+
 # [8.1.0](https://github.com/fulls1z3/ngx-cache/compare/v8.0.3...v8.1.0) (2020-04-27)
 
 

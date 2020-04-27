@@ -1,6 +1,6 @@
 {
   "name": "@ngx-cache/core",
-  "version": "8.1.0",
+  "version": "9.0.0",
   "description": "Cache utility for Angular",
   "repository": {
     "type": "git",
