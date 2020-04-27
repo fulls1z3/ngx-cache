@@ -18,7 +18,7 @@ export class CacheModule {
       provide: CacheLoader,
       useFactory: cacheFactory
     }
-  ): ModuleWithProviders {
+  ): ModuleWithProviders<CacheModule> {
     return {
       ngModule: CacheModule,
       providers: [

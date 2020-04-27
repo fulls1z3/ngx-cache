@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core
 
 @NgModule()
 export class ServerCacheModule {
-  static forRoot(configuredProviders?: Array<any>): ModuleWithProviders {
+  static forRoot(configuredProviders?: Array<any>): ModuleWithProviders<ServerCacheModule> {
     return {
       ngModule: ServerCacheModule,
       providers: configuredProviders
