@@ -4,7 +4,7 @@ import { CacheService } from '@ngx-cache/core';
 
 @NgModule()
 export class BrowserCacheModule {
-  static forRoot(configuredProviders?: Array<any>): ModuleWithProviders {
+  static forRoot(configuredProviders?: Array<any>): ModuleWithProviders<BrowserCacheModule> {
     return {
       ngModule: BrowserCacheModule,
       providers: configuredProviders

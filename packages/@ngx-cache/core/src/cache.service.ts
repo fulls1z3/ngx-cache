@@ -69,9 +69,9 @@ export class CacheService {
     if (Object.entries(cached).length !== 0 && cached.constructor === Object) {
       if (CacheService.validateValue(cached)) {
         return cached.data;
-      } else {
-        this.remove(normalized);
       }
+
+      this.remove(normalized);
     }
 
     return undefined;
@@ -84,9 +84,9 @@ export class CacheService {
     if (Object.entries(cached).length !== 0 && cached.constructor === Object) {
       if (CacheService.validateValue(cached)) {
         return cached;
-      } else {
-        this.remove(key);
       }
+
+      this.remove(key);
     }
 
     return undefined;
