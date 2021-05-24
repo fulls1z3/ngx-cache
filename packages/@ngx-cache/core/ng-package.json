@@ -8,5 +8,5 @@
       "rxjs": "rxjs"
     }
   },
-  "whitelistedNonPeerDependencies": ["events"]
+  "allowedNonPeerDependencies": ["events"]
 }
