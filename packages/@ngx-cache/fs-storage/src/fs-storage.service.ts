@@ -41,7 +41,7 @@ export class FsStorageService extends Storage {
     try {
       let stat = statSync(this.path);
 
-      if (!stat.hasOwnProperty('isDirectory')) {
+      if (!stat.isDirectory()) {
         throw new Error(`A file exists at the location ${this.path} when trying to create/open localStorage`);
       }
 
