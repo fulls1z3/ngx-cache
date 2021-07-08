@@ -22,7 +22,7 @@ Cache utility for **Angular**
 
 ### Examples
 
-- [ng-seed/universal] is an officially maintained seed project, showcasing common patterns and best practices for **`ngx-cache`**.
+- [fulls1z3/universal] is an officially maintained seed project, showcasing common patterns and best practices for **`ngx-cache`**.
 
 ## Contributing
 
@@ -41,10 +41,10 @@ If you want to file a bug, contribute some code, or improve documentation, pleas
 
 The MIT License (MIT)
 
-Copyright (c) 2019 [Burak Tasci]
+Copyright (c) 2021 [Burak Tasci]
 
 [ngx-cache]: https://github.com/fulls1z3/ngx-cache
-[ng-seed/universal]: https://github.com/ng-seed/universal
+[fulls1z3/universal]: https://github.com/fulls1z3/universal
 [jetbrains]: https://www.jetbrains.com/community/opensource
 [webstorm]: https://www.jetbrains.com/webstorm
 [burak tasci]: https://github.com/fulls1z3
