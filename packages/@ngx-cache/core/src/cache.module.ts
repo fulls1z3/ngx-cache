@@ -1,4 +1,12 @@
-import { InjectionToken, Injector, ModuleWithProviders, NgModule, Optional, PLATFORM_ID, SkipSelf } from '@angular/core';
+import {
+  InjectionToken,
+  Injector,
+  ModuleWithProviders,
+  NgModule,
+  Optional,
+  PLATFORM_ID,
+  SkipSelf
+} from '@angular/core';
 
 import { CacheLoader, CacheStaticLoader } from './cache.loader';
 import { CacheService } from './cache.service';
@@ -11,6 +19,7 @@ export const cacheFactory = () => new CacheStaticLoader();
 export const cacheServiceFactory = (loader: CacheLoader, platformId: any, injector: Injector) =>
   new CacheService(loader, platformId, injector);
 
+// @dynamic
 @NgModule()
 export class CacheModule {
   static forRoot(

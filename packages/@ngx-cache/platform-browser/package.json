@@ -1,4 +1,5 @@
 {
+  "$schema": "../../../node_modules/ng-packagr/package.schema.json",
   "name": "@ngx-cache/platform-browser",
   "version": "9.0.0",
   "description": "Browser platform implementation of ngx-cache",
@@ -24,10 +25,19 @@
   },
   "homepage": "https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-browser#readme",
   "peerDependencies": {
-    "@angular/common": ">=9.0.0 <10.0.0",
-    "@angular/core": ">=9.0.0 <10.0.0",
-    "@angular/platform-browser": ">=9.0.0 <10.0.0",
-    "@ngx-cache/core": ">=9.0.0 <10.0.0"
+    "@angular/common": ">=10.0.0 <11.0.0",
+    "@angular/core": ">=10.0.0 <11.0.0",
+    "@angular/platform-browser": ">=10.0.0 <11.0.0",
+    "@ngx-cache/core": ">=10.0.0 <11.0.0"
+  },
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/index.ts",
+      "umdModuleIds": {
+        "@ngx-cache/core": "ngxCache_core"
+      }
+    },
+    "dest": "../../../dist/@ngx-cache/platform-browser"
   },
   "publishConfig": {
     "access": "public",

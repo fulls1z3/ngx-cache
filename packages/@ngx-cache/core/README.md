@@ -37,7 +37,7 @@ npm install @ngx-cache/core --save
 
 ### <a name="examples"></a> Examples
 
-- [ng-seed/universal] is an officially maintained seed project, showcasing common patterns and best practices for **`@ngx-cache/core`**.
+- [fulls1z3/universal] is an officially maintained seed project, showcasing common patterns and best practices for **`@ngx-cache/core`**.
 
 ### <a name="related-packages"></a> Related packages
 
@@ -276,9 +276,9 @@ console.log(anyClass.getSomeStringValue2('p2'));
 
 The MIT License (MIT)
 
-Copyright (c) 2019 [Burak Tasci]
+Copyright (c) 2021 [Burak Tasci]
 
-[ng-seed/universal]: https://github.com/ng-seed/universal
+[fulls1z3/universal]: https://github.com/fulls1z3/universal
 [@ngx-cache/platform-browser]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-browser
 [@ngx-cache/platform-server]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/platform-server
 [@ngx-cache/fs-storage]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/fs-storage

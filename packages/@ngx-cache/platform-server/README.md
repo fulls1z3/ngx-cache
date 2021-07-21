@@ -35,7 +35,7 @@ server platform_).
 
 ### <a name="examples"></a> Examples
 
-- [ng-seed/universal] is an officially maintained seed project, showcasing common patterns and best practices for **`@ngx-cache/platform-server`**.
+- [fulls1z3/universal] is an officially maintained seed project, showcasing common patterns and best practices for **`@ngx-cache/platform-server`**.
 
 ### <a name="related-packages"></a> Related packages
 
@@ -141,10 +141,10 @@ export class AppServerModule {
 
 The MIT License (MIT)
 
-Copyright (c) 2019 [Burak Tasci]
+Copyright (c) 2021 [Burak Tasci]
 
 [ngx-cache]: https://github.com/fulls1z3/ngx-cache
-[ng-seed/universal]: https://github.com/ng-seed/universal
+[fulls1z3/universal]: https://github.com/fulls1z3/universal
 [@ngx-cache/core]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/core
 [@ngx-cache/fs-storage]: https://github.com/fulls1z3/ngx-cache/tree/master/packages/@ngx-cache/fs-storage
 [forroot]: https://angular.io/docs/ts/latest/guide/ngmodule.html#!#core-for-root
